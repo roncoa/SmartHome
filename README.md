@@ -47,11 +47,7 @@ reset         -> pulisce la memoria EEPROM e resetta l'ESP
 -XX           -> abbassa la tapparella della percentuale XX (es. +30 -> abbassa la tapparella del 30% del tempo massimo impostato)
 ```
 
-Il modulo "interruttore" serve per comandare luci o prese.  
-Il modulo "cancello" serve per comandare cancelli o portoni.  
-
-
-## Modulo "Il modulo "temperatura"
+## Modulo "temperatura"
 Il modulo "temperatura" è un termostato, serve per comandare apparecchiature per il riscaldamento.  
 Ad esso sono collegati:
 * 1 GPIO viene usato per la sonda di temperatura e umidità (DHT22).  
@@ -62,7 +58,7 @@ Ad esso sono collegati:
 Nello sketch vanno configurati i seguenti parametri:
 ```
 Temperatura_Topic         -> indica il topic MQTT al quale inviare i comandi per muovere/gestire il modulo  
-RELE_A_temperatura        -> GPIO usato per comandare il RELE del termoststo
+RELE_A_temperatura        -> GPIO usato per comandare il RELE del termostato
 RELE_B_temperatura        -> GPIO usato per comandare il RELE AUX
 DHTPIN_temperatura        -> GPIO usato per il sensore di temperatura DHT22
 I2C_DISPLAY_ADDRESS_temperatura      -> indirizzo I2C Display
@@ -83,6 +79,56 @@ stato2        -> restituisce sul topic ACK2 lo stato dei relè
 read          -> legge la temperatura
 reset         -> pulisce la memoria EEPROM e resetta l'ESP
 ```
+
+## Modulo "interruttore"
+Il modulo "interruttore" serve per comandare luci o prese. 
+Ad esso sono collegati:
+* 2 GPIO vengono usati per comandare 2 relè liberamente gestibili dall'utente.  
+* 2 GPIO vengono usati come ingressi fisici da pulsanti per comandare direttamente i 2 relè.
+
+Nello sketch vanno configurati i seguenti parametri:
+```
+Interruttore_Topic        -> indica il topic MQTT al quale inviare i comandi per muovere/gestire il modulo  
+RELE_A_interruttore       -> GPIO usato per comandare il RELE A
+RELE_B_interruttore       -> GPIO usato per comandare il RELE B
+BOTTONE_A_interruttore    -> GPIO usato per leggere lo stato del pulsante che comanda il RELE A
+BOTTONE_B_interruttore    -> GPIO usato per leggere lo stato del pulsante che comanda il RELE B
+TIPO_BOTTONE_A_interruttore -> tipo di bottone A "interruttore" o "pulsante"
+TIPO_BOTTONE_B_interruttore -> tipo di bottone B "interruttore" o "pulsante"
+```
+Comandi da inviare al topic "Interruttore_Topic":
+```
+1on           -> Imposta il relè A a ON  
+1off          -> Imposta il relè A a OFF  
+2on           -> Imposta il relè B a ON  
+2off          -> Imposta il relè B a OFF  
+stato         -> restituisce sul topic ACK lo stato dei relè  
+stato2        -> restituisce sul topic ACK2 lo stato dei relè  
+reset         -> pulisce la memoria EEPROM e resetta l'ESP  
+```
+
+## Modulo "cancello"
+Il modulo "cancello" serve per comandare cancelli o portoni. 
+Ad esso sono collegati:
+* 2 GPIO vengono usati per comandare 2 relè temporizzati liberamente gestibili dall'utente.  
+
+Nello sketch vanno configurati i seguenti parametri:
+```
+Cancello_Topic        -> indica il topic MQTT al quale inviare i comandi per muovere/gestire il modulo
+RELE_A_cancello       -> GPIO usato per comandare il RELE A
+RELE_B_cancello       -> GPIO usato per comandare il RELE B
+BOTTONE_A_cancello    -> GPIO usato per leggere lo stato del pulsante che comanda il RELE A
+BOTTONE_B_cancello    -> GPIO usato per leggere lo stato del pulsante che comanda il RELE B
+```
+Comandi da inviare al topic "Interruttore_Topic":
+```
+1on           -> Da un impulso ON al relè 1 per un determinato tempo gestibile dall'utente
+2on           -> Da un impulso ON al relè 2 per un determinato tempo gestibile dall'utente
+stato         -> restituisce sul topic ACK lo stato dei relè  
+stato2        -> restituisce sul topic ACK2 lo stato dei relè  
+reset         -> pulisce la memoria EEPROM e resetta l'ESP  
+```
+
 # SmartHome v4  
   
 Changelog versione v4:  
@@ -94,52 +140,3 @@ Changelog versione v4:
 -XX            -> comando GIU in percentuale (abbassa la tapparella del XX% es. -30 abbassa la tapparella del 30%)  
 ```    
 Utilizzare l'app dalla versione (16) 0.4β in poi.
-
-
-
-## SmartHome temperatura V 3.0
-
-* 1 GPIO viene usato per la sonda di temperatura e umidità (DHT22).  
-* 1 GPIO viene usato per comandare il relè termostato (se impostato in AUTO, funziona come un normale termostato, se impostato in MAN, lo si può commutare a piacere).  
-* 1 GPIO viene usato per comandare un relè liberamente gestibile dall'utente.  
-* 2 GPIO vengono usati per interfacciare un display I2C (SSD1306).  
-
-Comandi da inviare al topic "Temperatura_Topic":
-
-    man           -> Imposta il termostato in "manuale"
-    auto          -> Imposta il termostato in "automatico"
-    t=XX o T=XX   -> Imposta il termostato alla temperatura XX
-    1on           -> Imposta il relè 1 a ON
-    1off          -> Imposta il relè 1 a OFF
-    2on           -> Imposta il relè 2 a ON
-    2off          -> Imposta il relè 2 a OFF
-    stato         -> restituisce sul topic ACK lo stato dei relè la temperatura impostata e lo stato del termostato
-    stato2        -> restituisce sul topic ACK2 lo stato dei relè
-    read          -> legge la temperatura
-    reset         -> pulisce la memoria EEPROM e resetta l'ESP
-
-## SmartHome interruttore V 3.0
-
-* 2 GPIO vengono usati per comandare 2 relè liberamente gestibili dall'utente.  
-
-Comandi da inviare al topic "Interruttore_Topic":
-
-    1on           -> Imposta il relè 1 a ON  
-    1off          -> Imposta il relè 1 a OFF  
-    2on           -> Imposta il relè 2 a ON  
-    2off          -> Imposta il relè 2 a OFF  
-    stato         -> restituisce sul topic ACK lo stato dei relè  
-    stato2        -> restituisce sul topic ACK2 lo stato dei relè  
-    reset         -> pulisce la memoria EEPROM e resetta l'ESP  
-
-## SmartHome cancello V 3.0
-
-* 2 GPIO vengono usati per comandare 2 relè temporizzati liberamente gestibili dall'utente.  
-
-Comandi da inviare al topic "Interruttore_Topic":
-
-    1on           -> Da un impulso ON al relè 1 per un determinato tempo gestibile dall'utente
-    2on           -> Da un impulso ON al relè 2 per un determinato tempo gestibile dall'utente
-    stato         -> restituisce sul topic ACK lo stato dei relè  
-    stato2        -> restituisce sul topic ACK2 lo stato dei relè  
-    reset         -> pulisce la memoria EEPROM e resetta l'ESP  
