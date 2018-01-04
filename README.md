@@ -2,7 +2,33 @@
 
 Il progetto SmartHome ha lo scopo di realizzare dei moduli domotici a basso costo per rendere "intelligente" la casa.  
 Si divide in moduli realizzati con il microcontrollore ESP8266: modulo tapparella, modulo temperatura, modulo interruttore e modulo cancello.  
+Ogni modulo, ha una propria logica di funzionamento e gestisce i GPIO (ingressi ed uscite) ad esso collegati.  
+## Modulo "tapparella"
 Il modulo "tapparella" serve per comandare tapparelle o serrande.  
+Ad esso sono collegati:
+* 2 GPIO usati per comandare 2 relè per il movimento della tapparella (SU/GIU).  
+* 2 GPIO usati come ingressi fisici da pulsanti per comandare direttamente il movimento della tapparella(SU/GIU).  
+
+Nello sketch vanno configurati i seguenti parametri:
+```
+Tapparella_Topic        -> indica il topic MQTT al quale inviare i comandi per muovere/gestire il modulo  
+RELE_tapparella_SU      -> GPIO usato per comandare il RELE tapparella SU
+RELE_tapparella_GIU     -> GPIO usato per comandare il RELE tapparella GIU
+BOTTONE_tapparella_SU   -> GPIO usato per leggere lo stato del pulsante che alza la tapparella
+BOTTONE_tapparella_GIU  -> GPIO usato per leggere lo stato del pulsante che abbassa la tapparella
+```
+Comandi da inviare al topic MQTT "**Tapparella_Topic**":
+```
+su            -> comando SU  
+giu           -> comando GIU  
+stop          -> comando STOP  
+t=XX o T=XX   -> XX indica il tempo massimo di movimento della tapparella (es. T=30 -> setta il tempo massimo a 30 sec.)  
+stato         -> restituisce sul topic ACK lo stato dei relè e per quanto tempo la tapparella può restare in azione (in sec.)  
+stato2        -> restituisce sul topic ACK2 lo stato dei relè  
+reset         -> pulisce la memoria EEPROM e resetta l'ESP
++XX           -> alza la tapparella della percentuale XX (es. +50 -> alza la tapparella del 50% del tempo massimo impostato)
+-XX           -> abbassa la tapparella della percentuale XX (es. +30 -> abbassa la tapparella del 30% del tempo massimo impostato)
+```
 Il modulo "temperatura" è un termostato, serve per comandare apparecchiature per il riscaldamento.  
 Il modulo "interruttore" serve per comandare luci o prese.  
 Il modulo "cancello" serve per comandare cancelli o portoni.  
