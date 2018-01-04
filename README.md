@@ -46,13 +46,43 @@ reset         -> pulisce la memoria EEPROM e resetta l'ESP
 +XX           -> alza la tapparella della percentuale XX (es. +50 -> alza la tapparella del 50% del tempo massimo impostato)
 -XX           -> abbassa la tapparella della percentuale XX (es. +30 -> abbassa la tapparella del 30% del tempo massimo impostato)
 ```
-Il modulo "temperatura" è un termostato, serve per comandare apparecchiature per il riscaldamento.  
+
 Il modulo "interruttore" serve per comandare luci o prese.  
 Il modulo "cancello" serve per comandare cancelli o portoni.  
 
 
+## Modulo "Il modulo "temperatura"
+Il modulo "temperatura" è un termostato, serve per comandare apparecchiature per il riscaldamento.  
+Ad esso sono collegati:
+* 1 GPIO viene usato per la sonda di temperatura e umidità (DHT22).  
+* 1 GPIO viene usato per comandare il relè termostato (se impostato in AUTO, funziona come un normale termostato, se impostato in MAN, lo si può commutare a piacere).  
+* 1 GPIO viene usato per comandare un relè liberamente gestibile dall'utente.  
+* 2 GPIO vengono usati per interfacciare un display I2C (SSD1306).  
 
-
+Nello sketch vanno configurati i seguenti parametri:
+```
+Temperatura_Topic         -> indica il topic MQTT al quale inviare i comandi per muovere/gestire il modulo  
+RELE_A_temperatura        -> GPIO usato per comandare il RELE del termoststo
+RELE_B_temperatura        -> GPIO usato per comandare il RELE AUX
+DHTPIN_temperatura        -> GPIO usato per il sensore di temperatura DHT22
+I2C_DISPLAY_ADDRESS_temperatura      -> indirizzo I2C Display
+SDA_PIN_temperatura       -> GPIO usato per comandare il pin SDA del display
+SDC_PIN_temperatura       -> GPIO usato per comandare il pin SDC del display
+```
+Comandi da inviare al topic MQTT "**Temperatura_Topic**":
+```
+man           -> Imposta il termostato in "manuale"
+auto          -> Imposta il termostato in "automatico"
+t=XX o T=XX   -> Imposta il termostato alla temperatura XX
+1on           -> Imposta il relè termostato a ON
+1off          -> Imposta il relè termostato a OFF
+2on           -> Imposta il relè AUX a ON
+2off          -> Imposta il relè AUX a OFF
+stato         -> restituisce sul topic ACK lo stato dei relè la temperatura impostata e lo stato del termostato
+stato2        -> restituisce sul topic ACK2 lo stato dei relè
+read          -> legge la temperatura
+reset         -> pulisce la memoria EEPROM e resetta l'ESP
+```
 # SmartHome v4  
   
 Changelog versione v4:  
@@ -65,20 +95,7 @@ Changelog versione v4:
 ```    
 Utilizzare l'app dalla versione (16) 0.4β in poi.
 
-## SmartHome tapparella V 3.0
 
-* 2 GPIO vengono usati per comandare 2 relè per il movimento della tapparella.  
-* 2 GPIO vengono usati come ingressi fisici da pulsanti per comandare direttamente il movimento della tapparella.  
-
-Comandi da inviare al topic "Tapparella_Topic":
-
-    su            -> comando SU  
-    giu           -> comando GIU  
-    stop          -> comando STOP  
-    t=XX o T=XX   -> XX Indica per quanto tempo la tapparella può restare in azione (in sec.)  
-    stato         -> restituisce sul topic ACK lo stato dei relè e per quanto tempo la tapparella può restare in azione (in sec.)  
-    stato2        -> restituisce sul topic ACK2 lo stato dei relè  
-    reset         -> pulisce la memoria EEPROM e resetta l'ESP  
 
 ## SmartHome temperatura V 3.0
 
