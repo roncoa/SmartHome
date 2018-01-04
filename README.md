@@ -6,6 +6,15 @@ Ogni modulo, ha una propria logica di funzionamento e gestisce i GPIO (ingressi 
 Ogni modulo comunica attraverso il protocollo MQTT con il broker, che puo' essere locale (LAN) o remoto (internet).  
 Per interagire con i singoli moduli bisogna mandare ad esso specifici comandi (contraddistinto da un topic MQTT univoco). Si possono avere piu' moduli dello stesso tipo, basta che abbiano tutti un topic diverso (ad esempio: "tapparella_sala", "tapparella_cucina", "tapparella_bagno", ecc.) .  
 Inviando i comandi al modulo (topic), si interagisce con esso, facendogli fare delle operazioni o interrogandolo. Il modulo risponderà sul topic "ack".  
+### Protocollo MQTT (Message Queuing Telemetry Transport) 
+e' un protocollo di comunicazione machine-to-machine (M2M) progettato come un protocollo estremamente leggero che implementa un architettura publish/subscribe.
+
+Nella sua essenza un architettura Publish/Subscribe prevede 4 elementi principali:
+* Un agent con il ruolo di Publisher: che invia messaggi al broker indirizzati ad uno specifico Topic
+* Un agent con il ruolo di Subscriber: che riceve messaggi dal broker provenienti da uno specifico Topic
+* Un Broker di comunicazione: un elemento centrale che orchestra tutti i processi di comunicazione e gestisce il ciclo di vita dei topic e dei messaggi
+* Un Topic: un canale di comunicazione dedicato. 
+
 
 Piccolo video di esempio [QUI](https://www.youtube.com/watch?v=D-fIuXN_vOU)  
 A breve sarà disponibile nel Google Play un [applicazione](https://play.google.com/store/apps/details?id=roncoa.SmartHome) Android dalla quale è possibile gestire tutti i vari nodi.  
@@ -42,14 +51,7 @@ Il modulo "interruttore" serve per comandare luci o prese.
 Il modulo "cancello" serve per comandare cancelli o portoni.  
 
 
-### Protocollo MQTT (Message Queuing Telemetry Transport) 
-e' un protocollo di comunicazione machine-to-machine (M2M) progettato come un protocollo estremamente leggero che implementa un architettura publish/subscribe.
 
-Nella sua essenza un architettura Publish/Subscribe prevede 4 elementi principali:
-* Un agent con il ruolo di Publisher: che invia messaggi al broker indirizzati ad uno specifico Topic
-* Un agent con il ruolo di Subscriber: che riceve messaggi dal broker provenienti da uno specifico Topic
-* Un Broker di comunicazione: un elemento centrale che orchestra tutti i processi di comunicazione e gestisce il ciclo di vita dei topic e dei messaggi
-* Un Topic: un canale di comunicazione dedicato. 
 
 # SmartHome v4  
   
