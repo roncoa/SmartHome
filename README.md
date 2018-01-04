@@ -114,16 +114,17 @@ Ad esso sono collegati:
 
 Nello sketch vanno configurati i seguenti parametri:
 ```
-Cancello_Topic        -> indica il topic MQTT al quale inviare i comandi per muovere/gestire il modulo
-RELE_A_cancello       -> GPIO usato per comandare il RELE A
-RELE_B_cancello       -> GPIO usato per comandare il RELE B
-BOTTONE_A_cancello    -> GPIO usato per leggere lo stato del pulsante che comanda il RELE A
-BOTTONE_B_cancello    -> GPIO usato per leggere lo stato del pulsante che comanda il RELE B
+Cancello_Topic         -> indica il topic MQTT al quale inviare i comandi per muovere/gestire il modulo
+RELE_A_cancello        -> GPIO usato per comandare il RELE A
+RELE_B_cancello        -> GPIO usato per comandare il RELE B
+BOTTONE_A_cancello     -> GPIO usato per leggere lo stato del pulsante che comanda il RELE A
+BOTTONE_B_cancello     -> GPIO usato per leggere lo stato del pulsante che comanda il RELE B
+TEMPO_IMPULSO_cancello -> indica la durata dell'impulso al rele' (in millisecondi)
 ```
 Comandi da inviare al topic "Interruttore_Topic":
 ```
-1on           -> Da un impulso ON al relè 1 per un determinato tempo gestibile dall'utente
-2on           -> Da un impulso ON al relè 2 per un determinato tempo gestibile dall'utente
+1on           -> Da un impulso ON al relè A per un determinato tempo gestibile dall'utente
+2on           -> Da un impulso ON al relè B per un determinato tempo gestibile dall'utente
 stato         -> restituisce sul topic ACK lo stato dei relè  
 stato2        -> restituisce sul topic ACK2 lo stato dei relè  
 reset         -> pulisce la memoria EEPROM e resetta l'ESP  
