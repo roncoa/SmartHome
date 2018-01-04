@@ -17,7 +17,7 @@ Nella sua essenza un architettura Publish/Subscribe prevede 4 elementi principal
 
 
 Piccolo video di esempio [QUI](https://www.youtube.com/watch?v=D-fIuXN_vOU)  
-A breve sarà disponibile nel Google Play un [applicazione](https://play.google.com/store/apps/details?id=roncoa.SmartHome) Android dalla quale è possibile gestire tutti i vari nodi.  
+A breve sarà disponibile nel Google Play un [applicazione](https://play.google.com/store/apps/details?id=roncoa.SmartHome) Android dalla quale è possibile gestire tutti i vari moduli.  
 Se vuoi diventare un beta tester clicca [QUI](https://play.google.com/apps/testing/roncoa.SmartHome)  
 
 ## Modulo "tapparella"
@@ -132,7 +132,13 @@ reset         -> pulisce la memoria EEPROM e resetta l'ESP
 # SmartHome v4  
 Utilizzare l'app dalla versione (16) 0.4β in poi.  
 Changelog versione v4:  
-* Raggruppato tutti i nodi in un unico file sorgente, basta configurare il file "SmartHome_config.h" .
+* Raggruppato tutti i moduli in un unico file sorgente, basta configurare il file "SmartHome_config.h" .
+```
+NODI_TAPPARELLA     X                       // Max 2 nodi tapparella (consigliato usarne max 1)
+NODI_INTERRUTTORE   X                       // Max 4 nodi interruttore
+NODI_CANCELLO       X                       // Max 2 nodi cancello
+NODI_TEMPERATURA    X                       // Max 1 nodo temperatura
+```
 * Aggiunto comando per alzare/abbassare tapparelle in percentuale (es. +50 alza del 50% , -30 abbassa del 30%).
 ```
 +XX            -> comando SU in percentuale (alza la tapparella del XX% es. +50 alza la tapparella del 50%)  
