@@ -3,6 +3,14 @@
 Il progetto SmartHome ha lo scopo di realizzare dei moduli domotici a basso costo per rendere "intelligente" la casa.  
 Si divide in moduli realizzati con il microcontrollore ESP8266: modulo tapparella, modulo temperatura, modulo interruttore e modulo cancello.  
 Ogni modulo, ha una propria logica di funzionamento e gestisce i GPIO (ingressi ed uscite) ad esso collegati.  
+Ogni modulo comunica attraverso il protocollo MQTT con il broker, che puo' essere locale (LAN) o remoto (internet).  
+Per interagire con i singoli moduli bisogna mandare ad esso specifici comandi (contraddistinto da un topic MQTT univoco). Si possono avere piu' moduli dello stesso tipo, basta che abbiano tutti un topic diverso (ad esempio: "tapparella_sala", "tapparella_cucina", "tapparella_bagno", ecc.) .  
+Inviando i comandi al modulo (topic), si interagisce con esso, facendogli fare delle operazioni o interrogandolo. Il modulo risponderà sul topic "ack".  
+
+Piccolo video di esempio [QUI](https://www.youtube.com/watch?v=D-fIuXN_vOU)  
+A breve sarà disponibile nel Google Play un [applicazione](https://play.google.com/store/apps/details?id=roncoa.SmartHome) Android dalla quale è possibile gestire tutti i vari nodi.  
+Se vuoi diventare un beta tester clicca [QUI](https://play.google.com/apps/testing/roncoa.SmartHome)  
+
 ## Modulo "tapparella"
 Il modulo "tapparella" serve per comandare tapparelle o serrande.  
 Ad esso sono collegati:
@@ -32,13 +40,7 @@ reset         -> pulisce la memoria EEPROM e resetta l'ESP
 Il modulo "temperatura" è un termostato, serve per comandare apparecchiature per il riscaldamento.  
 Il modulo "interruttore" serve per comandare luci o prese.  
 Il modulo "cancello" serve per comandare cancelli o portoni.  
-Ogni modulo comunica attraverso il protocollo MQTT con il broker, che puo' essere locale (LAN) o remoto (internet).  
-Per interagire con i singoli moduli bisogna mandare ad esso specifici comandi (contraddistinto da un topic MQTT univoco). Si possono avere piu' moduli dello stesso tipo, basta che abbiano tutti un topic diverso (ad esempio: "tapparella_sala", "tapparella_cucina", "tapparella_bagno", ecc.) .  
-Inviando i comandi al modulo (topic), si interagisce con esso, facendogli fare delle operazioni o interrogandolo. Il modulo risponderà sul topic "ack".  
 
-Piccolo video di esempio [QUI](https://www.youtube.com/watch?v=D-fIuXN_vOU)  
-A breve sarà disponibile nel Google Play un [applicazione](https://play.google.com/store/apps/details?id=roncoa.SmartHome) Android dalla quale è possibile gestire tutti i vari nodi.  
-Se vuoi diventare un beta tester clicca [QUI](https://play.google.com/apps/testing/roncoa.SmartHome)  
 
 ### Protocollo MQTT (Message Queuing Telemetry Transport) 
 e' un protocollo di comunicazione machine-to-machine (M2M) progettato come un protocollo estremamente leggero che implementa un architettura publish/subscribe.
