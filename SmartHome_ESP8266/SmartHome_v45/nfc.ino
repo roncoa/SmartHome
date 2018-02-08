@@ -13,7 +13,7 @@
 
 
 
-//MFRC522 mfrc522(SS_PIN, RST_PIN); // Create MFRC522 instance
+MFRC522 mfrc522(SS_PIN, RST_PIN); // Create MFRC522 instance
 
 void setup_nfc() {
   SPI.begin();           // Init SPI bus
@@ -186,4 +186,6 @@ void menokey() {
 void clearkey() {
   eraseAllKey();
 }
+
+
 

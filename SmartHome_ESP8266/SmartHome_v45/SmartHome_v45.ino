@@ -21,6 +21,9 @@
 #include "MFRC522.h"
 
 #include "SmartHome_config.h"
+//#include "SmartHome_config_tapparelle_casa.h"
+//#include "SmartHome_config_esp01_serial_rele.h"
+#include "SmartHome_config_hipposwitch.h"
 
 // VARIABILI
 String        Versione = "4.5";                       // Versione SmartHome
@@ -48,7 +51,8 @@ boolean       Rele_B_eccitato_cancello2 = false;      // Variabile rele B cancel
 TPush BottoneTAP1SU, BottoneTAP1GIU, BottoneTAP2SU, BottoneTAP2GIU, BottoneAINT1, BottoneBINT1, BottoneAINT2, BottoneBINT2, BottoneAINT3, BottoneBINT3, BottoneAINT4, BottoneBINT4, BottoneACAN1, BottoneBCAN1, BottoneACAN2, BottoneBCAN2, TIMER, TIMER_TERMOSTATO1, T_LAMPEGGIO;
 DHT dht(DHTPIN_temperatura1, DHTTYPE, 15);
 SSD1306 display(I2C_DISPLAY_ADDRESS_temperatura1, SDA_PIN_temperatura1, SDC_PIN_temperatura1);
-MFRC522 mfrc522(SS_PIN, RST_PIN); // Create MFRC522 instance
+
+
 
 void setup() {
 #if defined(DEBUG)
@@ -57,8 +61,9 @@ void setup() {
   Check_flash_chip_configuration();
   setup_EEPROM();
   setup_GPIO();
+#if defined(CANCELLO_NFC)
   setup_nfc();
-  
+#endif
   setup_wifi();
   setup_web();
   setup_MQTT();
@@ -80,8 +85,9 @@ void loop() {
   loop_MQTT();
   loop_OTA();
   loop_telnet();
-  loop_nfc();
-
+#if defined(CANCELLO_NFC)
+loop_nfc();
+#endif
   loop_tapparelle();
   loop_interruttori();
   loop_cancelli();

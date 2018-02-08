@@ -823,7 +823,7 @@ void callback(char* topic, byte * message, unsigned int length) {
       client.publish(ACK2_Topic, (char*) payload.c_str());
       delay(100);
     }
-
+#if defined(CANCELLO_NFC)
     if ((char)message[0] == '+' & (char)message[1] == 'k' & (char)message[2] == 'e' & (char)message[3] == 'y') {    // Topic "Cancello1_Topic" = "+key"
       piukey();
     }
@@ -833,7 +833,7 @@ void callback(char* topic, byte * message, unsigned int length) {
     if ((char)message[0] == 'X' & (char)message[1] == 'k' & (char)message[2] == 'e' & (char)message[3] == 'y') {    // Topic "Cancello1_Topic" = "Xkey"
       clearkey();
     }
-
+#endif
   }
 
   // CANCELLO 2
