@@ -20,9 +20,9 @@
   //const int   mqtt_port = 1883;                       // MQTT port raspberry
 
 // Numero nodi da compilare
-#define NODI_TAPPARELLA     0                       // Max 2 nodi tapparella (consigliato usarne max 1)
+#define NODI_TAPPARELLA     1                       // Max 2 nodi tapparella (consigliato usarne max 1)
 #define NODI_INTERRUTTORE   0                       // Max 4 nodi interruttore
-#define NODI_CANCELLO       1                       // Max 2 nodi cancello
+#define NODI_CANCELLO       0                       // Max 2 nodi cancello
 #define NODI_TEMPERATURA    0                       // Max 1 nodo temperatura
 
 // MQTT topic
@@ -91,6 +91,14 @@
 #define I2C_DISPLAY_ADDRESS_temperatura1 0x3c       // indirizzo I2C Display temperatura 1
 #define SDA_PIN_temperatura1          4             // pin SDA Display temperatura 1 (4)
 #define SDC_PIN_temperatura1          5             // pin SDC Display temperatura 1 (5)
+//#define CANCELLO_NFC
+/* wiring the MFRC522 to ESP8266 (ESP-12)
+  RST     = RST_PIN
+  SDA(SS) = SS_PIN
+  MOSI    = GPIO13
+  MISO    = GPIO12
+  SCK     = GPIO14
+*/
 #define RST_PIN                       5             // RST-PIN - RC522 - RFID - SPI - Modul GPIO5 
 #define SS_PIN                        4             // SDA-PIN - RC522 - RFID - SPI - Modul GPIO4 
 #define PullUp                                      // resistenza PullUp verso vcc   (commentare solo uno dei due (PullUp o PullDown))
