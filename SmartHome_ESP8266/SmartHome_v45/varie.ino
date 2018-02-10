@@ -849,6 +849,9 @@ void loop_interruttori() {
 
 
 void loop_cancelli() {
+#if defined(CANCELLO_NFC)
+  loop_nfc();
+#endif
   if (NODI_CANCELLO > 0) {
     if (((millis() - ulTimeReleACancello1) > TEMPO_IMPULSO_cancello) & Rele_A_eccitato_cancello1) {        // Tempo rele 1 -> spengo!
       Debug_MSG_LN("Tempo rele 1 -> spengo!");

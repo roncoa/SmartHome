@@ -19,7 +19,6 @@
 #include "DHT.h"
 #include "SSD1306.h"
 
-
 #include "SmartHome_config.h"
 
 // VARIABILI
@@ -77,9 +76,7 @@ void loop() {
   loop_MQTT();
   loop_OTA();
   loop_telnet();
-#if defined(CANCELLO_NFC)
-loop_nfc();
-#endif
+
   loop_tapparelle();
   loop_interruttori();
   loop_cancelli();

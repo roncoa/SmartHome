@@ -21,7 +21,6 @@
   //const char* mqtt_server = "192.168.1.200";          // MQTT server raspberry
   //const int   mqtt_port = 1883;                       // MQTT port raspberry
 
-
 // Numero nodi da compilare
 #define NODI_TAPPARELLA     1                       // Max 2 nodi tapparella (consigliato usarne max 1)
 #define NODI_INTERRUTTORE   0                       // Max 4 nodi interruttore
@@ -29,7 +28,7 @@
 #define NODI_TEMPERATURA    0                       // Max 1 nodo temperatura
 
 // MQTT topic
-#define Tapparella1_Topic   "tapparella/2"          // Tapparella 1 Topic (non usare underscore "_")
+#define Tapparella1_Topic   "tapparella/1"          // Tapparella 1 Topic (non usare underscore "_")
 #define Tapparella2_Topic   "tapparella/2"          // Tapparella 2 Topic (non usare underscore "_")
 #define Interruttore1_Topic "interruttore/1"        // Interruttore 1 Topic (non usare underscore "_")
 #define Interruttore2_Topic "interruttore/2"        // Interruttore 2 Topic (non usare underscore "_")
