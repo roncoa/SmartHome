@@ -21,10 +21,6 @@
 
 
 #include "SmartHome_config.h"
-//#include "SmartHome_config_tapparelle_casa.h"
-//#include "SmartHome_config_esp01_serial_rele.h"
-//#include "SmartHome_config_hipposwitch.h"
-#include "SmartHome_config_nfc.h"
 
 // VARIABILI
 String        Versione = "4.5";                       // Versione SmartHome
