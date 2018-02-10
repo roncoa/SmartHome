@@ -1,5 +1,5 @@
 #include <SPI.h>
-//#include "MFRC522.h"
+#include "MFRC522.h"
 
 /* wiring the MFRC522 to ESP8266 (ESP-12)
   RST     = GPIO5
@@ -10,8 +10,6 @@
   GND     = GND
   3.3V    = 3.3V
 */
-
-
 
 MFRC522 mfrc522(SS_PIN, RST_PIN); // Create MFRC522 instance
 
@@ -37,8 +35,7 @@ void loop_nfc() {
   EEPROMUID = "";
   UID = dump_byte_array(mfrc522.uid.uidByte, mfrc522.uid.size);
   Debug_MSG_LN(UID);
-  delay(1000);
-
+  delay(250);
   for (int i = 100; i < 200; i = i + 4) {
     EEPROMUID = "";
     EEPROMUID += String(EEPROM.read(i) < 0x10 ? "0" : "");
@@ -70,6 +67,7 @@ void loop_nfc() {
       Debug_MSG_LN(" accesso negato!");
     }
   }
+  delay(1000);
 }
 
 void eraseAllKey() {

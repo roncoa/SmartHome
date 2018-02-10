@@ -1,7 +1,9 @@
-/*
+/*   
+  Nodemcu       -> Flash Mode:QIO Flash Size:4M(1M SPIFFS)
   Electrodragon -> Flash Mode:QIO Flash Size:4M(1M SPIFFS)
-  ESP01         -> Flash Mode:DIO Flash Size:1M(256k SPIFFS)
-  SONOFFDUAL    -> Flash Mode:DIO Flash Size:1M(64K SPIFFS)
+  Hipposwitch   -> Flash Mode:QIO Flash Size:4M(1M SPIFFS)  
+  ESP01         -> Flash Mode:QIO Flash Size:1M(256k SPIFFS)
+  SONOFFDUAL    -> Flash Mode:QIO Flash Size:1M(256k SPIFFS)
 */
 
 
@@ -19,6 +21,7 @@
   //const char* mqtt_server = "192.168.1.200";          // MQTT server raspberry
   //const int   mqtt_port = 1883;                       // MQTT port raspberry
 
+
 // Numero nodi da compilare
 #define NODI_TAPPARELLA     1                       // Max 2 nodi tapparella (consigliato usarne max 1)
 #define NODI_INTERRUTTORE   0                       // Max 4 nodi interruttore
@@ -26,7 +29,7 @@
 #define NODI_TEMPERATURA    0                       // Max 1 nodo temperatura
 
 // MQTT topic
-#define Tapparella1_Topic   "tapparella/1"          // Tapparella 1 Topic (non usare underscore "_")
+#define Tapparella1_Topic   "tapparella/2"          // Tapparella 1 Topic (non usare underscore "_")
 #define Tapparella2_Topic   "tapparella/2"          // Tapparella 2 Topic (non usare underscore "_")
 #define Interruttore1_Topic "interruttore/1"        // Interruttore 1 Topic (non usare underscore "_")
 #define Interruttore2_Topic "interruttore/2"        // Interruttore 2 Topic (non usare underscore "_")
@@ -42,13 +45,13 @@
 // GPIO
 //#define SONOFFDUAL                                  // Il modulo è un SONOFF DUAL  (commentare se non è un SONOFF DUAL)
 //#define ESP01_SERIAL_RELE                           // Il modulo è un ESP01 RELE  (commentare se non è un ESP01 RELE)
-#define Flag_inversione_RELE         1              // Inversione del segnale di uscita RELE       (0=normale - 1=invertito) nodemcu=1 - ESP01=1 - SONOFFDUAL=0 - elctrodragon=0
-#define Flag_inversione_Status_LED   1              // Inversione del segnale di uscita Status_LED (0=normale - 1=invertito) nodemcu=1 - ESP01=1 - SONOFFDUAL=1 - elctrodragon=0
-#define Status_LED                   16             // BUILTIN_LED nodemcu=16 - ESP01=4 - SONOFFDUAL=13 - elctrodragon=16
-#define RELE_tapparella1_SU          12             // RELE tapparella 1 SU      nodemcu=12 - ESP01=0 - SONOFFDUAL=14 - elctrodragon=12
-#define RELE_tapparella1_GIU         13             // RELE tapparella 1 GIU     nodemcu=13 - ESP01=2 - SONOFFDUAL=15 - elctrodragon=13
-#define BOTTONE_tapparella1_SU        4             // Pulsante tapparella 1 SU  nodemcu=4 - ESP01=1 - SONOFFDUAL=4 - elctrodragon=4
-#define BOTTONE_tapparella1_GIU       5             // Pulsante tapparella 1 GIU nodemcu=5 - ESP01=3 - SONOFFDUAL=5 - elctrodragon=5
+#define Flag_inversione_RELE         1              // Inversione del segnale di uscita RELE       (0=normale - 1=invertito) nodemcu=1 - ESP01=1 - SONOFFDUAL=0 - elctrodragon=0 - hipposwitch=0
+#define Flag_inversione_Status_LED   1              // Inversione del segnale di uscita Status_LED (0=normale - 1=invertito) nodemcu=1 - ESP01=1 - SONOFFDUAL=1 - elctrodragon=0 - hipposwitch=0
+#define Status_LED                   16             // BUILTIN_LED nodemcu=16 - ESP01=4 - SONOFFDUAL=13 - elctrodragon=16 - hipposwitch=15
+#define RELE_tapparella1_SU          12             // RELE tapparella 1 SU      nodemcu=12 - ESP01=0 - SONOFFDUAL=14 - elctrodragon=12 - hipposwitch=12
+#define RELE_tapparella1_GIU         13             // RELE tapparella 1 GIU     nodemcu=13 - ESP01=2 - SONOFFDUAL=15 - elctrodragon=13 - hipposwitch=14
+#define BOTTONE_tapparella1_SU        4             // Pulsante tapparella 1 SU  nodemcu=4 - ESP01=1 - SONOFFDUAL=4 - elctrodragon=4 - hipposwitch=
+#define BOTTONE_tapparella1_GIU       5             // Pulsante tapparella 1 GIU nodemcu=5 - ESP01=3 - SONOFFDUAL=5 - elctrodragon=5 - hipposwitch=
 #define RELE_tapparella2_SU          12             // RELE tapparella 2 SU
 #define RELE_tapparella2_GIU         13             // RELE tapparella 2 GIU
 #define BOTTONE_tapparella2_SU        4             // Pulsante tapparella 2 SU
@@ -77,7 +80,7 @@
 #define TIPO_BOTTONE_B_interruttore3 "interruttore" // Interruttore/pulsante B interruttore 3   ("interruttore" o "pulsante")
 #define TIPO_BOTTONE_A_interruttore4 "interruttore" // Interruttore/pulsante A interruttore 4   ("interruttore" o "pulsante")
 #define TIPO_BOTTONE_B_interruttore4 "interruttore" // Interruttore/pulsante B interruttore 4   ("interruttore" o "pulsante")
-#define RELE_A_cancello1              2             // RELE A cancello 1
+#define RELE_A_cancello1             12             // RELE A cancello 1
 #define RELE_B_cancello1             13             // RELE B cancello 1
 #define BOTTONE_A_cancello1           4             // Pulsante A cancello 1
 #define BOTTONE_B_cancello1           5             // Pulsante B cancello 1
@@ -93,14 +96,14 @@
 #define SDC_PIN_temperatura1          5             // pin SDC Display temperatura 1 (5)
 //#define CANCELLO_NFC
 /* wiring the MFRC522 to ESP8266 (ESP-12)
-  RST     = RST_PIN
   SDA(SS) = SS_PIN
+  RST     = RST_PIN
   MOSI    = GPIO13
   MISO    = GPIO12
   SCK     = GPIO14
 */
-#define RST_PIN                       5             // RST-PIN - RC522 - RFID - SPI - Modul GPIO5 
 #define SS_PIN                        4             // SDA-PIN - RC522 - RFID - SPI - Modul GPIO4 
+#define RST_PIN                       5             // RST-PIN - RC522 - RFID - SPI - Modul GPIO5 
 #define PullUp                                      // resistenza PullUp verso vcc   (commentare solo uno dei due (PullUp o PullDown))
 //#define PullDown                                   // resistenza PullDown verso gnd (commentare solo uno dei due (PullUp o PullDown))
 

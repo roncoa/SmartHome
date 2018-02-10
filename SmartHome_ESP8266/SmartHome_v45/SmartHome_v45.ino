@@ -18,9 +18,13 @@
 #include <TPush.h>
 #include "DHT.h"
 #include "SSD1306.h"
-#include "MFRC522.h"
+
 
 #include "SmartHome_config.h"
+//#include "SmartHome_config_tapparelle_casa.h"
+//#include "SmartHome_config_esp01_serial_rele.h"
+//#include "SmartHome_config_hipposwitch.h"
+#include "SmartHome_config_nfc.h"
 
 // VARIABILI
 String        Versione = "4.5";                       // Versione SmartHome
@@ -58,18 +62,13 @@ void setup() {
   Check_flash_chip_configuration();
   setup_EEPROM();
   setup_GPIO();
-#if defined(CANCELLO_NFC)
-  setup_nfc();
-#endif
+
   setup_wifi();
   setup_web();
   setup_MQTT();
   setup_OTA();
   setup_telnet();
 
-
-  EEPROM_read_TEMPO_tapparelle_MAX();
-  EEPROM_temperatura1_read();
 }
 
 

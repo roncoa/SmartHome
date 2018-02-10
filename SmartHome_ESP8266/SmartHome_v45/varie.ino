@@ -4,11 +4,11 @@ void Debug_MSG(String s) {
 #endif
 
 #if defined(TELNET_DEBUG)
-  byte sbuf[s.length()+1];
-  s.getBytes(sbuf, s.length()+1);
+  byte sbuf[s.length() + 1];
+  s.getBytes(sbuf, s.length() + 1);
   for (int i = 0; i < MAX_SRV_CLIENTS; i++) {
     if (serverClients[i] && serverClients[i].connected()) {
-      serverClients[i].write(sbuf, s.length()+1);
+      serverClients[i].write(sbuf, s.length() + 1);
       delay(1);
     }
   }
@@ -21,12 +21,12 @@ void Debug_MSG_LN(String s) {
 #endif
 
 #if defined(TELNET_DEBUG)
-  byte sbuf[s.length()+1];
+  byte sbuf[s.length() + 1];
   byte CRLF[] = {0x0d, 0x0a};
-  s.getBytes(sbuf, s.length()+1);
+  s.getBytes(sbuf, s.length() + 1);
   for (int i = 0; i < MAX_SRV_CLIENTS; i++) {
     if (serverClients[i] && serverClients[i].connected()) {
-      serverClients[i].write(sbuf, s.length()+1);
+      serverClients[i].write(sbuf, s.length() + 1);
       serverClients[i].write(CRLF, 2);
       delay(1);
     }
@@ -244,11 +244,19 @@ void setup_GPIO() {
 #endif
   }
   if (NODI_CANCELLO > 0) {
+#if defined(CANCELLO_NFC)
+    setup_nfc();
+#endif
     Debug_MSG_LN("- Cancello 1 : " + String(Cancello1_Topic));
     Debug_MSG_LN("RELE A cancello 1        = GPIO" + String(RELE_A_cancello1));
     Debug_MSG_LN("RELE B cancello 1        = GPIO" + String(RELE_B_cancello1));
     Debug_MSG_LN("Pulsante A cancello 1    = GPIO" + String(BOTTONE_A_cancello1));
     Debug_MSG_LN("Pulsante B cancello 1    = GPIO" + String(BOTTONE_B_cancello1));
+    Debug_MSG_LN("NFC RST                  = GPIO" + String(RST_PIN));
+    Debug_MSG_LN("NFC SDA(SS)              = GPIO" + String(SS_PIN));
+    Debug_MSG_LN("NFC MOSI                 = GPIO" + String("13"));
+    Debug_MSG_LN("NFC MISO                 = GPIO" + String("14"));
+    Debug_MSG_LN("NFC SCK                  = GPIO" + String("15"));
     pinMode(RELE_A_cancello1, OUTPUT);
     digitalWrite(RELE_A_cancello1, 0 ^ Flag_inversione_RELE);
     pinMode(RELE_B_cancello1, OUTPUT);
@@ -310,6 +318,14 @@ void setup_GPIO() {
     display.drawString(0, 20, "by roncoa@gmail.com");
     display.display();
   }
+  if (NODI_TAPPARELLA > 0) {
+    EEPROM_read_TEMPO_tapparelle_MAX();
+  }
+
+  if (NODI_TEMPERATURA > 0) {
+    EEPROM_temperatura1_read();
+  }
+
 }
 
 
