@@ -34,6 +34,28 @@ void Debug_MSG_LN(String s) {
 #endif
 }
 
+void loop_reset_giornaliero() {
+  if (TIMER_RESET_GIORNALIERO.Wait(1000 * 60 * 60 * 24)) { // 1 giorno=86400000
+    Debug_MSG_LN("Reset giornaliero");
+    Debug_MSG_LN("RIAVVIO L'ESP");
+    delay(250);
+    //WiFi.disconnect(true);
+    delay(250);
+    ESP.restart();
+  }
+}
+
+void loop_check_low_memory() {
+  if (ESP.getFreeHeap() < 15000) {
+    Debug_MSG_LN("Poca memoria");
+    Debug_MSG_LN("RIAVVIO L'ESP");
+    delay(250);
+    //WiFi.disconnect(true);
+    delay(250);
+    ESP.restart();
+  }
+}
+
 void setup_GPIO() {
   Debug_MSG(" ***** SmartHome v");
   Debug_MSG(Versione);
@@ -341,6 +363,7 @@ void Check_flash_chip_configuration() {
   Serial.printf("Flash ide  size: %u\n", ideSize);
   Serial.printf("Flash ide speed: %u\n", ESP.getFlashChipSpeed());
   Serial.printf("Flash ide mode:  %s\n", (ideMode == FM_QIO ? "QIO" : ideMode == FM_QOUT ? "QOUT" : ideMode == FM_DIO ? "DIO" : ideMode == FM_DOUT ? "DOUT" : "UNKNOWN"));
+  Serial.printf("FreeHeap: %u\n", ESP.getFreeHeap());
   if (ideSize != realSize) {
     Debug_MSG_LN("***********************************");
     Debug_MSG_LN("* Flash Chip configuration WRONG! *");
@@ -412,7 +435,7 @@ String getTime() {
 }
 
 void loop_lampeggio_led() {
-  if (T_LAMPEGGIO.Wait(250)) {
+  if (TIMER_LAMPEGGIO.Wait(250)) {
     lamp = lamp + 1;
     if (lamp > 6) lamp = 0;
     if (lamp > 1 and !client.connected()) lamp = 0;

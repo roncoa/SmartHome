@@ -20,6 +20,9 @@
 #include "SSD1306.h"
 
 #include "SmartHome_config.h"
+#include "SmartHome_config_nfc.h"
+
+
 
 // VARIABILI
 String        Versione = "4.5";                       // Versione SmartHome
@@ -44,7 +47,12 @@ boolean       Rele_B_eccitato_cancello1 = false;      // Variabile rele B cancel
 boolean       Rele_A_eccitato_cancello2 = false;      // Variabile rele A cancello 2
 boolean       Rele_B_eccitato_cancello2 = false;      // Variabile rele B cancello 2
 
-TPush BottoneTAP1SU, BottoneTAP1GIU, BottoneTAP2SU, BottoneTAP2GIU, BottoneAINT1, BottoneBINT1, BottoneAINT2, BottoneBINT2, BottoneAINT3, BottoneBINT3, BottoneAINT4, BottoneBINT4, BottoneACAN1, BottoneBCAN1, BottoneACAN2, BottoneBCAN2, TIMER, TIMER_TERMOSTATO1, T_LAMPEGGIO;
+TPush BottoneTAP1SU, BottoneTAP1GIU, BottoneTAP2SU, BottoneTAP2GIU;
+TPush BottoneAINT1, BottoneBINT1, BottoneAINT2, BottoneBINT2, BottoneAINT3, BottoneBINT3, BottoneAINT4, BottoneBINT4;
+TPush BottoneACAN1, BottoneBCAN1, BottoneACAN2, BottoneBCAN2;
+TPush TIMER_TERMOSTATO1;
+TPush TIMER_REFRESH_CONNESSIONE, TIMER_RESET_GIORNALIERO, TIMER_LAMPEGGIO;
+
 DHT dht(DHTPIN_temperatura1, DHTTYPE, 15);
 SSD1306 display(I2C_DISPLAY_ADDRESS_temperatura1, SDA_PIN_temperatura1, SDC_PIN_temperatura1);
 
@@ -69,7 +77,11 @@ void setup() {
 
 
 void loop() {
+
   loop_lampeggio_led();
+
+  loop_check_low_memory();
+  loop_reset_giornaliero();
 
   loop_wifi();
   loop_web();
