@@ -20,9 +20,6 @@
 #include "SSD1306.h"
 
 #include "SmartHome_config.h"
-#include "SmartHome_config_nfc.h"
-
-
 
 // VARIABILI
 String        Versione = "4.5";                       // Versione SmartHome
