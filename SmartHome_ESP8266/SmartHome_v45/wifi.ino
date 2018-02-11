@@ -30,7 +30,7 @@ void setup_wifi() {
     Debug_MSG_LN((String) WiFi.RSSI());
     Debug_MSG("Local  IP   : ");
     Debug_MSG_LN(WiFi.localIP().toString());
-    
+
     //  Debug_MSG("SoftAP IP   : ");
     //  Debug_MSG_LN((String) WiFi.softAPIP());
     Debug_MSG("MAC address : ");
@@ -40,8 +40,13 @@ void setup_wifi() {
 }
 
 void loop_wifi() {
-  if (TIMER.Wait(TEMPO_REFRESH_CONNESSIONE)) {
+  if (TIMER_REFRESH_CONNESSIONE.Wait(TEMPO_REFRESH_CONNESSIONE)) {
+
+
+    Debug_MSG("FreeHeap:");
+    Debug_MSG_LN((String) ESP.getFreeHeap());
     Debug_MSG_LN("Check connections");
+
     if (WiFi.status() != WL_CONNECTED) {
       Debug_MSG("WIFI ERRORE DI RETE: ");
       switch (WiFi.status()) {

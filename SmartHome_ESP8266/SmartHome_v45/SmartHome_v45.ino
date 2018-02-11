@@ -10,6 +10,8 @@
   ESP01_SERIAL_RELE support (1 o 2 relè) (solo Interruttore1 e Cancello1)
   TELNET DEBUG
   NFC support (solo Cancello1)
+  check low memory
+  reset giornaliero
   Bug fix
 */
 
@@ -20,9 +22,6 @@
 #include "SSD1306.h"
 
 #include "SmartHome_config.h"
-#include "SmartHome_config_nfc.h"
-
-
 
 // VARIABILI
 String        Versione = "4.5";                       // Versione SmartHome
