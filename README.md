@@ -16,7 +16,7 @@ Nella sua essenza un architettura Publish/Subscribe prevede 4 elementi principal
 * Un Topic: un canale di comunicazione dedicato. 
 
 
-Piccolo video di esempio [QUI](https://www.youtube.com/watch?v=D-fIuXN_vOU)  
+Piccolo video di esempio [QUI](https://www.youtube.com/watch?v=1_ZGrr2Y1Ds)  
 A breve sarà disponibile nel Google Play un [applicazione](https://play.google.com/store/apps/details?id=roncoa.SmartHome) Android dalla quale è possibile gestire tutti i vari moduli.  
 Se vuoi diventare un beta tester clicca [QUI](https://play.google.com/apps/testing/roncoa.SmartHome)  
 
