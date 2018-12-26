@@ -1,0 +1,25 @@
+#######################################
+# Syntax Coloring Map For TPush
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+TPush	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+setUp		KEYWORD2
+Wait	KEYWORD2
+Click	KEYWORD2
+DoubleClick	KEYWORD2
+Keep	KEYWORD2
+KeepON	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
