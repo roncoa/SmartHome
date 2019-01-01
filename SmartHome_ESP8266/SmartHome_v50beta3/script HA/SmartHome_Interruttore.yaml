@@ -1,0 +1,16 @@
+light:  # o switch:
+  - platform: mqtt
+    name: "Nome che volete" 
+    command_topic: "Interruttore/1"
+    payload_on: "on" 
+    payload_off: "off"
+    state_topic: "Interruttore/1/ack"
+    value_template: "{{value_json.STATO}}"
+    availability_topic: "123456789012"
+    qos: 0
+    retain: false
+    optimistic: false
+# si puo' usare anche come switch:
+# nel campo "command_topic" mettere il topic che avete impostato nel firmware
+# nel campo "state_topic" mettere lo stesso valore del campo "command_topic" + "/ack"
+# nel campo "availability_topic" mettere il MacAddress dell'ESP (oppure il valore che avete impostato nel campo "WillTopic" nel firmware)

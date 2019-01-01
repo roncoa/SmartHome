@@ -1,0 +1,83 @@
+sensor:
+  - platform: mqtt
+    name: "Temperatura"
+    state_topic: "Termostato/1/ack"
+    value_template: "{{value_json.T}}"
+    unit_of_measurement: "°C"
+    availability_topic: "123456789012"
+  - platform: mqtt
+    name: "Umidità"
+    state_topic: "Termostato/1/ack"
+    value_template: "{{value_json.H}}"
+    unit_of_measurement: "%" 
+    availability_topic: "123456789012"
+  - platform: mqtt
+    name: "HI"
+    state_topic: "Termostato/1/ack"
+    value_template: "{{value_json.HI}}"
+    unit_of_measurement: "°C" 
+    availability_topic: "123456789012"
+switch:
+  - platform: mqtt
+    name: AUTO
+    command_topic: "Termostato/1"
+    payload_on: "auto"
+    payload_off: "man"
+    state_topic: "Termostato/1/ack"
+    value_template: "{{value_json.AUTO}}"
+    availability_topic: "123456789012"
+  - platform: mqtt
+    name: RELE
+    command_topic: "Termostato/1"
+    payload_on: "on"
+    payload_off: "off"
+    state_topic: "Termostato/1/ack"
+    value_template: "{{value_json.RELE}}"
+    availability_topic: "123456789012"
+input_number:
+  termostato:
+    name: Termostato
+    initial: 30
+    min: 5
+    max: 35
+    step: 0.5
+    unit_of_measurement: "°C"
+group:
+  Aaa:
+    name: Termostato/1
+    control: hidden
+    entities:
+    - sensor.temperatura
+    - input_number.termostato
+    - sensor.hi
+    - sensor.umidita
+    - switch.auto
+    - switch.rele
+automation:
+  - alias: Set temp slider
+    hide_entity: true
+    initial_state: 'on'
+    trigger:
+      platform: mqtt
+      topic: 'Termostato/1/ack'
+    action:
+      service: input_number.set_value
+      data_template:
+        entity_id: input_number.termostato
+        value: "{{ trigger.payload_json.TERMOSTATO }}"
+  - alias: Temp slider moved
+    hide_entity: true
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: input_number.termostato
+    action:
+      - service: mqtt.publish
+        data_template:
+          topic: 'Termostato/1'
+          payload: "t={{ states('input_number.termostato') }}"
+          retain: false
+      - delay: 00:00:02
+# nei campi "command_topic" mettere il topic che avete impostato nel firmware
+# nei campi "state_topic" mettere lo stesso valore del campo "command_topic" + "/ack"
+# nei campi "availability_topic" mettere il MacAddress dell'ESP (oppure il valore che avete impostato nel campo "WillTopic" nel firmware)
