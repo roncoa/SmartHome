@@ -30,10 +30,10 @@ void setup_Interruttore() {
   Interruttore[0].rele = Interruttore1_GPIO_rele;
 #ifdef Interruttore1_GPIO_bottone
   Interruttore[0].bottone = Interruttore1_GPIO_bottone;
+  Interruttore[0].tipo_bottone = Interruttore1_tipo_bottone;
 #else
   Interruttore[0].bottone = 100;
 #endif
-  Interruttore[0].tipo_bottone = Interruttore1_tipo_bottone;
   Interruttore[0].stato = Interruttore1_GPIO_stato;
 
   Interruttore[1].topic = Interruttore2_Topic;
@@ -42,10 +42,10 @@ void setup_Interruttore() {
   Interruttore[1].rele = Interruttore2_GPIO_rele;
 #ifdef Interruttore2_GPIO_bottone
   Interruttore[1].bottone = Interruttore2_GPIO_bottone;
+  Interruttore[1].tipo_bottone = Interruttore2_tipo_bottone;
 #else
   Interruttore[1].bottone = 100;
 #endif
-  Interruttore[1].tipo_bottone = Interruttore2_tipo_bottone;
   Interruttore[1].stato = Interruttore2_GPIO_stato;
 
   Interruttore[2].topic = Interruttore3_Topic;
@@ -54,10 +54,10 @@ void setup_Interruttore() {
   Interruttore[2].rele = Interruttore3_GPIO_rele;
 #ifdef Interruttore3_GPIO_bottone
   Interruttore[2].bottone = Interruttore3_GPIO_bottone;
+  Interruttore[2].tipo_bottone = Interruttore3_tipo_bottone;
 #else
   Interruttore[2].bottone = 100;
 #endif
-  Interruttore[2].tipo_bottone = Interruttore3_tipo_bottone;
   Interruttore[2].stato = Interruttore3_GPIO_stato;
 
   Interruttore[3].topic = Interruttore4_Topic;
@@ -66,10 +66,10 @@ void setup_Interruttore() {
   Interruttore[3].rele = Interruttore4_GPIO_rele;
 #ifdef Interruttore4_GPIO_bottone
   Interruttore[3].bottone = Interruttore4_GPIO_bottone;
+  Interruttore[3].tipo_bottone = Interruttore4_tipo_bottone;
 #else
   Interruttore[3].bottone = 100;
 #endif
-  Interruttore[3].tipo_bottone = Interruttore4_tipo_bottone;
   Interruttore[3].stato = Interruttore4_GPIO_stato;
 
   Interruttore[4].topic = Interruttore5_Topic;
@@ -78,10 +78,10 @@ void setup_Interruttore() {
   Interruttore[4].rele = Interruttore5_GPIO_rele;
 #ifdef Interruttore5_GPIO_bottone
   Interruttore[4].bottone = Interruttore5_GPIO_bottone;
+  Interruttore[4].tipo_bottone = Interruttore5_tipo_bottone;
 #else
   Interruttore[4].bottone = 100;
 #endif
-  Interruttore[4].tipo_bottone = Interruttore5_tipo_bottone;
   Interruttore[4].stato = Interruttore5_GPIO_stato;
 
   Interruttore[5].topic = Interruttore6_Topic;
@@ -90,10 +90,10 @@ void setup_Interruttore() {
   Interruttore[5].rele = Interruttore6_GPIO_rele;
 #ifdef Interruttore6_GPIO_bottone
   Interruttore[5].bottone = Interruttore6_GPIO_bottone;
+  Interruttore[5].tipo_bottone = Interruttore6_tipo_bottone;
 #else
   Interruttore[5].bottone = 100;
 #endif
-  Interruttore[5].tipo_bottone = Interruttore6_tipo_bottone;
   Interruttore[5].stato = Interruttore6_GPIO_stato;
 
   Interruttore[6].topic = Interruttore7_Topic;
@@ -102,10 +102,10 @@ void setup_Interruttore() {
   Interruttore[6].rele = Interruttore7_GPIO_rele;
 #ifdef Interruttore7_GPIO_bottone
   Interruttore[6].bottone = Interruttore7_GPIO_bottone;
+  Interruttore[6].tipo_bottone = Interruttore7_tipo_bottone;
 #else
   Interruttore[6].bottone = 100;
 #endif
-  Interruttore[6].tipo_bottone = Interruttore7_tipo_bottone;
   Interruttore[6].stato = Interruttore7_GPIO_stato;
 
   Interruttore[7].topic = Interruttore8_Topic;
@@ -114,10 +114,10 @@ void setup_Interruttore() {
   Interruttore[7].rele = Interruttore8_GPIO_rele;
 #ifdef Interruttore8_GPIO_bottone
   Interruttore[7].bottone = Interruttore8_GPIO_bottone;
+  Interruttore[7].tipo_bottone = Interruttore8_tipo_bottone;
 #else
   Interruttore[7].bottone = 100;
 #endif
-  Interruttore[7].tipo_bottone = Interruttore8_tipo_bottone;
   Interruttore[7].stato = Interruttore8_GPIO_stato;
 
   Interruttore[8].topic = Interruttore9_Topic;
@@ -126,10 +126,10 @@ void setup_Interruttore() {
   Interruttore[8].rele = Interruttore9_GPIO_rele;
 #ifdef Interruttore9_GPIO_bottone
   Interruttore[8].bottone = Interruttore9_GPIO_bottone;
+  Interruttore[8].tipo_bottone = Interruttore9_tipo_bottone;
 #else
   Interruttore[8].bottone = 100;
 #endif
-  Interruttore[8].tipo_bottone = Interruttore9_tipo_bottone;
   Interruttore[8].stato = Interruttore9_GPIO_stato;
 
   Interruttore[9].topic = Interruttore10_Topic;
@@ -138,10 +138,10 @@ void setup_Interruttore() {
   Interruttore[9].rele = Interruttore10_GPIO_rele;
 #ifdef Interruttore10_GPIO_bottone
   Interruttore[9].bottone = Interruttore10_GPIO_bottone;
+  Interruttore[9].tipo_bottone = Interruttore10_tipo_bottone;
 #else
   Interruttore[9].bottone = 100;
 #endif
-  Interruttore[9].tipo_bottone = Interruttore10_tipo_bottone;
   Interruttore[9].stato = Interruttore10_GPIO_stato;
 
   for (int i = 0; i < Interruttore_nodi; i++) {
