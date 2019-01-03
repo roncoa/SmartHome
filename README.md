@@ -17,12 +17,7 @@ Se ti piace **SmartHome** .......
 
 
 
-
-
 # SmartHome v5
-
-
-
 
 # SmartHome v4  
 Utilizzare l'app dalla versione (16) 0.4β in poi.  
