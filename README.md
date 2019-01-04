@@ -1,6 +1,5 @@
 ## SmartHome: Casa domotica per ESP8266 basato sul protocollo MQTT
-
-Firmware per _ESP8266_ .  
+_Firmware per ESP8266_  
 Il progetto SmartHome ha lo scopo di realizzare dei moduli domotici a basso costo per rendere "intelligente" la casa.
 
 [**Documentazione**](https://github.com/roncoa/SmartHome/wiki)  
