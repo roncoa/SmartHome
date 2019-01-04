@@ -10,6 +10,7 @@ light:  # o switch:
     qos: 0
     retain: false
     optimistic: false
+
 # si puo' usare anche come switch:
 # nel campo "command_topic" mettere il topic che avete impostato nel firmware
 # nel campo "state_topic" mettere lo stesso valore del campo "command_topic" + "/ack"

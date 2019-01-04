@@ -10,6 +10,7 @@ cover:
     qos: 0
     retain: false
     optimistic: false
+
 # nel campo "command_topic" mettere il topic che avete impostato nel firmware
 # nel campo "state_topic" mettere lo stesso valore del campo "command_topic" + "/ack"
 # nel campo "availability_topic" mettere il MacAddress dell'ESP (oppure il valore che avete impostato nel campo "WillTopic" nel firmware)
