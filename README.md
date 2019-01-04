@@ -4,7 +4,7 @@ Il progetto SmartHome è un _Firmware per ESP8266_ con lo scopo di realizzare de
   
   
 Per istruzioni e informazioni leggi [**Wiki**](https://github.com/roncoa/SmartHome/wiki)  
-Per scaricare l'ultima [![GitHub version](https://img.shields.io/github/release/roncoa/smarthome.svg)](https://github.com/roncoa/smarthome/releases/latest) clicca [**qui**](https://github.com/roncoa/SmartHome/releases/latest) 
+Per scaricare l'ultima [![GitHub version](https://img.shields.io/github/release/roncoa/smarthome.svg)](https://github.com/roncoa/smarthome/releases/latest) clicca [**qui**](https://github.com/roncoa/SmartHome/releases/latest)  
 [![GitHub download](https://img.shields.io/github/downloads/roncoa/smarthome/total.svg)](https://github.com/roncoa/smarthome/releases/latest)
 [![License](https://img.shields.io/github/license/roncoa/smarthome.svg)](https://github.com/roncoa/smarthome/blob/development/LICENSE.txt)  
 Per il changelog clicca [**qui**](changelog.md)
