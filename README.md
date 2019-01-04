@@ -7,7 +7,7 @@ Il progetto SmartHome ha lo scopo di realizzare dei moduli domotici a basso cost
 [**Ultima versione**](https://github.com/roncoa/SmartHome/releases/latest)
 
 [![GitHub version](https://img.shields.io/github/release/roncoa/smarthome.svg)](https://github.com/roncoa/smarthome/releases/latest)
-[![GitHub download]](https://github.com/roncoa/smarthome/releases/latest)
+[![GitHub download](https://img.shields.io/github/downloads/roncoa/smarthome/total.svg)](https://github.com/roncoa/smarthome/releases/latest)
 [![License](https://img.shields.io/github/license/roncoa/smarthome.svg)](https://github.com/roncoa/smarthome/blob/development/LICENSE.txt)
 
 Se ti piace **SmartHome** .......
