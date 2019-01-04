@@ -16,9 +16,10 @@ Se ti piace **SmartHome** .......
 
 
 
-# SmartHome v5
+# SmartHome v5.x  
+Changelog coming soon
 
-# SmartHome v4  
+# SmartHome v4.x  
 Utilizzare l'app dalla versione (16) 0.4β in poi.  
 Changelog versione v4:  
 * Raggruppato tutti i moduli in un unico file sorgente, basta configurare il file "SmartHome_config.h" .
@@ -35,7 +36,7 @@ NODI_TEMPERATURA    X                       // Max 1 nodo temperatura
 ```
 * Bug fix.  
   
-# SmartHome v3  
+# SmartHome v3.x  
 Utilizzare l'app dalla versione (13) 0.3.3β in poi.  
 Changelog versione v3:  
 * Miglioramenti per la stabilità.  
