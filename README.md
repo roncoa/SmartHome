@@ -1,4 +1,4 @@
-## SmartHome: Casa domotica per ESP8266 basato sul protocollo MQTT
+## SmartHome: casa domotica per ESP8266 basato sul protocollo MQTT
  
 SmartHome è un _Firmware per ESP8266_ con lo scopo di realizzare moduli domotici a basso costo per rendere "intelligente" la casa.
   
