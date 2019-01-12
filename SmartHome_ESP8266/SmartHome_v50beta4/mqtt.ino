@@ -1,6 +1,11 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 
+// Max message size calculated by PubSubClient is (MQTT_MAX_PACKET_SIZE < 5 + 2 + strlen(topic) + plength)
+#if (MQTT_MAX_PACKET_SIZE < 20)  // If the max message size is too small, throw an error at compile time. See PubSubClient.cpp line 359
+#error "MQTT_MAX_PACKET_SIZE is too small in libraries/PubSubClient/src/PubSubClient.h, increase it to at least 1000"
+#endif
+
 String MQTT_ACK     = "ack";
 String MQTT_RESET   = "reset";
 String MQTT_REBOOT  = "reboot";
@@ -97,6 +102,10 @@ void Send_Alive() {
   client.publish(ACK_Topic, (char*) payload.c_str());     // Pubblica su ACK_Topic -> MAC + IP + version + " start at " + time
   delay(100);
   Debug_MSG_LN(payload);
+#if defined(HomeAssistant_discovery)
+  cancella_nodi_MQTT_discovery();
+#endif
+
   Alive_Tapparella();
   Alive_Termostato();
   Alive_Interruttore();
@@ -104,7 +113,53 @@ void Send_Alive() {
   Alive_Temporizzatore();
   Alive_Sensore();
   Alive_Display();
+  Alive_RF433();
   //Alive_NuovoNodo();
+}
+
+void cancella_nodi_MQTT_discovery() {
+  String HAtopic;
+  String HApayload;
+  HApayload = "";
+  for (int i = 0; i < 4; i++) {
+    HAtopic = "homeassistant/cover/";
+    HAtopic += macToStr(mac);
+    HAtopic += "/";
+    HAtopic += "TAP";
+    HAtopic += i;
+    HAtopic += "/config";
+    client.publish((char*) HAtopic.c_str(), (char*) HApayload.c_str());
+    delay(100);
+  }
+  for (int i = 0; i < 9; i++) {
+    HAtopic = "homeassistant/switch/";
+    HAtopic += macToStr(mac);
+    HAtopic += "/";
+    HAtopic += "INT";
+    HAtopic += i;
+    HAtopic += "/config";
+    client.publish((char*) HAtopic.c_str(), (char*) HApayload.c_str());
+    delay(100);
+
+    HAtopic = "homeassistant/switch/";
+    HAtopic += macToStr(mac);
+    HAtopic += "/";
+    HAtopic += "IMP";
+    HAtopic += i;
+    HAtopic += "/config";
+    client.publish((char*) HAtopic.c_str(), (char*) HApayload.c_str());
+    delay(100);
+
+    HAtopic = "homeassistant/switch/";
+    HAtopic += macToStr(mac);
+    HAtopic += "/";
+    HAtopic += "TEM";
+    HAtopic += i;
+    HAtopic += "/config";
+    client.publish((char*) HAtopic.c_str(), (char*) HApayload.c_str());
+    delay(100);
+  }
+
 }
 
 void Send_ACK() {
@@ -115,6 +170,7 @@ void Send_ACK() {
   ACK_Temporizzatore();
   ACK_Sensore();
   ACK_Display();
+  ACK_RF433();
   //ACK_NuovoNodo();
 }
 
@@ -137,6 +193,7 @@ void SubscribeTopic() {
   Subscribe_Temporizzatore();
   Subscribe_Sensore();
   Subscribe_Display();
+  Subscribe_RF433();
   //Subscribe_NuovoNodo();
 }
 
@@ -158,6 +215,7 @@ void callback(char* topic, byte * message, unsigned int length) {
   callback_Temporizzatore(topic, message, length);
   callback_Sensore(topic, message, length);
   callback_Display(topic, message, length);
+  callback_RF433(topic, message, length);
   //callback_NuovoNodo(topic, message, length);
 
   // messaggio eseguito da tutti i nodi nella rete

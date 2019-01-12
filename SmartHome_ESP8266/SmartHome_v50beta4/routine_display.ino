@@ -1,15 +1,3 @@
-#define Display_nodi 1
-
-#define Display1_Topic "Display/1"
-#define Display1_I2C_DISPLAY_ADDRESS 0x3c
-#define Display1_GPIO_SDA 4
-#define Display1_GPIO_SDC 5
-
-/*
-Per provarlo, mettere tutti i nodi (tapparella, interruttore, ecc. ecc.) a 0
-utilizza il display SSD1306 con address 0x3c connesso ai GPIO 4 e 5 (SDA e SDC)
-*/
-
 #include "SSD1306.h"
 
 long EEPROM_Display = 350;
