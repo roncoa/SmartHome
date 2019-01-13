@@ -167,7 +167,7 @@ void SONOFFDUAL_A_ON() {
   Serial.begin(19230);
   Serial.write(0xA0);
   Serial.write(0x04);
-  Serial.write(sonoffdualcommand(1, 1)); // relÃ¨ 1 ON
+  Serial.write(sonoffdualcommand(1, 1)); // rele'¨ 1 ON
   Serial.write(0xA1);
   Serial.flush();
 }
@@ -175,7 +175,7 @@ void SONOFFDUAL_B_ON() {
   Serial.begin(19230);
   Serial.write(0xA0);
   Serial.write(0x04);
-  Serial.write(sonoffdualcommand(2, 1)); // relÃ¨ 2 ON
+  Serial.write(sonoffdualcommand(2, 1)); // rele'¨ 2 ON
   Serial.write(0xA1);
   Serial.flush();
 }
@@ -183,7 +183,7 @@ void SONOFFDUAL_A_OFF() {
   Serial.begin(19230);
   Serial.write(0xA0);
   Serial.write(0x04);
-  Serial.write(sonoffdualcommand(1, 0)); // relÃ¨ 1 OFF
+  Serial.write(sonoffdualcommand(1, 0)); // rele'¨ 1 OFF
   Serial.write(0xA1);
   Serial.flush();
 }
@@ -191,7 +191,7 @@ void SONOFFDUAL_B_OFF() {
   Serial.begin(19230);
   Serial.write(0xA0);
   Serial.write(0x04);
-  Serial.write(sonoffdualcommand(2, 0)); // relÃ¨ 2 OFF
+  Serial.write(sonoffdualcommand(2, 0)); // rele'¨ 2 OFF
   Serial.write(0xA1);
   Serial.flush();
 }

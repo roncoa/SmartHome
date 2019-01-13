@@ -1,5 +1,5 @@
 /*
- *****   SmartHome v5.0beta4   *****
+ *****   SmartHome v5.0   *****
 
   TESTED ON
   Arduino:  1.8.7
@@ -15,7 +15,7 @@
   SONOFF 4CH PRO R2 -> Flash Mode:DOUT Flash Size:1M oppure Scheda: ESP8285
   Shelly1           -> Flash Mode:DIO  Flash Size:2M
 
-  GPIO
+  GPIO:
   OUT 1: nodemcu=12 (D6) - ESP01=0 - elctrodragon=12 - hipposwitch=12 - Shelly1=4 - SONOFFDUAL=14 - 4CH PRO=12
   OUT 2: nodemcu=13 (D7) - ESP01=2 - elctrodragon=13 - hipposwitch=14 -             SONOFFDUAL=15 - 4CH PRO=5
   OUT 3:                                                                                            4CH PRO=4
@@ -25,12 +25,12 @@
   IN  3:                                                                                            4CH PRO=10
   IN  4:                                                                                            4CH PRO=14
   BUILTIN_LED                nodemcu=16 - ESP01=4 - SONOFFDUAL=13 - elctrodragon=16 - hipposwitch=15 - Shelly1=16 - 4CH PRO=13
-  Inversione RELE            nodemcu=1  - ESP01=1 - SONOFFDUAL=0  - elctrodragon=0  - hipposwitch=0  - Shelly1=0  - 4CH PRO=0
-  Inversione Status_LED_GPIO nodemcu=1  - ESP01=1 - SONOFFDUAL=1  - elctrodragon=0  - hipposwitch=0  - Shelly1=1  - 4CH PRO=1
-  resistenza PullUp verso vcc
-  resistenza PullDown verso gnd
-
-
+  Inversione RELE            nodemcu=1  - ESP01=1 - SONOFFDUAL=0  - elctrodragon=0  - hipposwitch=0  - Shelly1=0 - 4CH PRO=0
+  Inversione Status_LED_GPIO nodemcu=1  - ESP01=1 - SONOFFDUAL=1  - elctrodragon=0  - hipposwitch=0  - Shelly1=1 - 4CH PRO=1
+  PullUp resistenza verso vcc
+  PullDown resistenza verso gnd
+  
+  
   Comandi MQTT verso il topic nodo Tapparella:
   su     - alza la Tapparella
   giu    - abbassa la Tapparella
@@ -83,19 +83,20 @@
   _ Max  5 nodi Tapparella
   _ Max 10 nodi Interruttore
   _ Max 10 nodi Impulso
-  _ Max  1 nodo Termostato
+  _ Max  2 nodo Termostato
   _ Max 10 nodi Temporizzatore
   _ Max 10 nodi Sensore
   _ Rimappato EEPROM
   _ Aggiunto topic di ack di ogni singlolo nodo dove il nodo conferma il proprio cambiamento di stato
   _ Eliminato doppio rele in Interruttore, Termostato e Impulso (ora tutti i nodi hanno un solo rele' (tranne naturalmente Tapparella))
+  _ Momentaneamente rimossa compatibiltÃ con i moduli ESP01 serial rele
 
   Changelog v4.5:
   _ SONOFF DUAL support
   _ Check Flash size
   _ Semplificato sketch
   _ Controllo da pagina web
-  _ ESP01_SERIAL_rele support (1 o 2 relÃ¨) (solo Interruttore1 e Impulso1)
+  _ ESP01_SERIAL_rele support (1 o 2 rele'¨) (solo Interruttore1 e Impulso1)
   _ TELNET DEBUG
   _ NFC support (solo Impulso1)
   _ check low memory

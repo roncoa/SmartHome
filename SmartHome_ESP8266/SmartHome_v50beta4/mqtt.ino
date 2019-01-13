@@ -113,7 +113,6 @@ void Send_Alive() {
   Alive_Temporizzatore();
   Alive_Sensore();
   Alive_Display();
-  Alive_RF433();
   //Alive_NuovoNodo();
 }
 
@@ -170,7 +169,6 @@ void Send_ACK() {
   ACK_Temporizzatore();
   ACK_Sensore();
   ACK_Display();
-  ACK_RF433();
   //ACK_NuovoNodo();
 }
 
@@ -193,7 +191,6 @@ void SubscribeTopic() {
   Subscribe_Temporizzatore();
   Subscribe_Sensore();
   Subscribe_Display();
-  Subscribe_RF433();
   //Subscribe_NuovoNodo();
 }
 
@@ -215,7 +212,6 @@ void callback(char* topic, byte * message, unsigned int length) {
   callback_Temporizzatore(topic, message, length);
   callback_Sensore(topic, message, length);
   callback_Display(topic, message, length);
-  callback_RF433(topic, message, length);
   //callback_NuovoNodo(topic, message, length);
 
   // messaggio eseguito da tutti i nodi nella rete
