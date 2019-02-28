@@ -1,5 +1,9 @@
 # SmartHome v5.x  
-Changelog coming soon
+Riscritto e ottimizzato le routines di connessione al WiFi e MQTT  
+l'uso della memoria e' stato ottimizzato, adesso l'esp usa praticamente la meta' della memoria che usava nella release precedente.
+Bug fix.
+La tapparella adesso ha anche la percentuale e lo stato in Home assistant.
+Il termostato adesso ha una logica migliorata che usa messaggi mqtt solo se e' necessario.
 
 # SmartHome v4.x  
 Utilizzare l'app dalla versione (16) 0.4β in poi.  
