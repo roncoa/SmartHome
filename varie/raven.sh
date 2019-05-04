@@ -36,8 +36,8 @@ echo
 echo make toolchain esptool libhal STANDALONE=n
 make toolchain esptool libhal STANDALONE=n
 echo
-echo PATH="$PATH:/home/pi/Desktop/HK/esp-homekit-devices/esp-open-sdk/xtensa-lx106-elf/bin"
-PATH="$PATH:/home/pi/Desktop/HK/esp-homekit-devices/esp-open-sdk/xtensa-lx106-elf/bin"
+echo PATH="$PATH:/home/pi/esp-homekit-devices/esp-open-sdk/xtensa-lx106-elf/bin"
+PATH="$PATH:/home/pi/esp-homekit-devices/esp-open-sdk/xtensa-lx106-elf/bin"
 echo
 echo
 echo
