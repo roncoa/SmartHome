@@ -1,8 +1,11 @@
 #if Impulso_nodi>0
 
 #define Impulso_TEMPO_CLICK_ON           TEMPO_CLICK_ON
+#define Impulso_TEMPO_CLICK_OFF          TEMPO_CLICK_OFF
 
-unsigned long Impulso_TEMPO_IMPULSO = 500;             // Indica la durata dell'impulso al rele' (in millisecondi)
+//#define Impulso_mantieni_click              // se abilitato(non commentato) mantiene il relè eccitato duante la pressione del bottone e/o tag vicino
+
+unsigned long Impulso_TEMPO_IMPULSO = 500;  // Indica la durata dell'impulso al rele' (in millisecondi)
 
 String Impulso_DEF     = "IMP";
 String Impulso_ON      = "on";
@@ -303,10 +306,19 @@ void loop_Impulso() {
 #ifdef ESP01_SERIAL_RELE
       ESP01_SERIAL_RELE_A_ON();
 #endif
+#ifndef Impulso_mantieni_click
+      Impulso[i].rele_eccitato = true;
+      Impulso[i].ulTime = millis();
+      Stato_IMP(i);
+#endif
+    }
+#ifdef Impulso_mantieni_click
+    if (t = Impulso_TPush_bottone[i].Keep(Impulso_TEMPO_CLICK_OFF)) {
       Impulso[i].rele_eccitato = true;
       Impulso[i].ulTime = millis();
       Stato_IMP(i);
     }
+#endif
   }
 #ifdef Impulso1_NFC
   loop_nfc();
@@ -336,7 +348,9 @@ void loop_nfc() {
   UID = dump_byte_array(mfrc522.uid.uidByte, mfrc522.uid.size);
   Debug_MSG_LN(UID);
 
+#ifndef Impulso_mantieni_click
   mfrc522.PICC_HaltA();
+#endif
   mfrc522.PCD_StopCrypto1();
 
   if (piukey_flag == true) {
@@ -353,7 +367,6 @@ void loop_nfc() {
     return;
   }
 
-  //unblockingDelay(500);
   for (int i = EEPROM_NFC; i < EEPROM_NFC + 100; i = i + 4) {
     EEPROMUID = "";
     EEPROMUID += String(EEPROM.read(i + 0) < 0x10 ? "0" : "");
