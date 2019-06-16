@@ -130,6 +130,19 @@ long EEPROM_Power_zero = 151;
   164  -> SmartHome Power 1 - Wh_zero_mensile (float 3th byte)
   165  -> SmartHome Power 1 - Wh_zero_mensile (float 2nd byte)
   166  -> SmartHome Power 1 - Wh_zero_mensile (float 1st byte)
+  167  -> SmartHome Power 1 - Wh_ieri (float 4th byte)
+  168  -> SmartHome Power 1 - Wh_ieri (float 3th byte)
+  169  -> SmartHome Power 1 - Wh_ieri (float 2nd byte)
+  170  -> SmartHome Power 1 - Wh_ieri (float 1st byte)
+  171  -> SmartHome Power 1 - Wh_settimana_scorsa (float 4th byte)
+  172  -> SmartHome Power 1 - Wh_settimana_scorsa (float 3th byte)
+  173  -> SmartHome Power 1 - Wh_settimana_scorsa (float 2nd byte)
+  174  -> SmartHome Power 1 - Wh_settimana_scorsa (float 1st byte)
+  175  -> SmartHome Power 1 - Wh_mese_scorso (float 4th byte)
+  176  -> SmartHome Power 1 - Wh_mese_scorso (float 3th byte)
+  177  -> SmartHome Power 1 - Wh_mese_scorso (float 2nd byte)
+  178  -> SmartHome Power 1 - Wh_mese_scorso (float 1st byte)
+
 */
 
 long EEPROM_Interruttore_stato_rele = 200;
