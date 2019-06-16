@@ -271,16 +271,16 @@ void loop_Power() {
       old_week = new_week;
       Power[0].Wh_settimana_scorsa = Power[0].Wh - Power[0].Wh_zero_settimanale;
       Power[0].Wh_zero_settimanale = Power[0].Wh;
-      EEPROM_READ_Power_zero(0);
       EEPROM_WRITE_Power_zero(0);
+      EEPROM_READ_Power_zero(0);
     }
     if (new_month != old_month) {
       Debug_MSG_LN("*** new month ***");
       old_month = new_month;
       Power[0].Wh_mese_scorso = Power[0].Wh - Power[0].Wh_zero_mensile;
       Power[0].Wh_zero_mensile = Power[0].Wh;
-      EEPROM_READ_Power_zero(0);
       EEPROM_WRITE_Power_zero(0);
+      EEPROM_READ_Power_zero(0);
     }
   }
 
@@ -393,16 +393,23 @@ void EEPROM_READ_Power_zero(int i) {
   Power[0].Wh_zero_oggi = eepromReadFloat(EEPROM_Power_zero + 4);
   Power[0].Wh_zero_settimanale = eepromReadFloat(EEPROM_Power_zero + 8);
   Power[0].Wh_zero_mensile = eepromReadFloat(EEPROM_Power_zero + 12);
-
+  Power[0].Wh_ieri = eepromReadFloat(EEPROM_Power_zero + 16);
+  Power[0].Wh_settimana_scorsa = eepromReadFloat(EEPROM_Power_zero + 20);
+  Power[0].Wh_mese_scorso = eepromReadFloat(EEPROM_Power_zero + 24);
   if (Power[0].Wh_zero_parziale < 0 or isnan(Power[0].Wh_zero_parziale)) Power[0].Wh_zero_parziale = 0;
   if (Power[0].Wh_zero_oggi <= 0 or isnan(Power[0].Wh_zero_oggi)) Power[0].Wh_zero_oggi = Power[0].Wh;
   if (Power[0].Wh_zero_settimanale <= 0 or isnan(Power[0].Wh_zero_settimanale)) Power[0].Wh_zero_settimanale = Power[0].Wh;
   if (Power[0].Wh_zero_mensile <= 0 or isnan(Power[0].Wh_zero_mensile)) Power[0].Wh_zero_mensile = Power[0].Wh;
-
+  if (Power[0].Wh_ieri <= 0 or isnan(Power[0].Wh_ieri)) Power[0].Wh_ieri = 0;
+  if (Power[0].Wh_settimana_scorsa <= 0 or isnan(Power[0].Wh_settimana_scorsa)) Power[0].Wh_settimana_scorsa = 0;
+  if (Power[0].Wh_mese_scorso <= 0 or isnan(Power[0].Wh_mese_scorso)) Power[0].Wh_mese_scorso = 0;
   Debug_MSG_LN(" Wh_zero_parziale:" + (String) Power[0].Wh_zero_parziale);
   Debug_MSG_LN(" Wh_zero_oggi:" + (String) Power[0].Wh_zero_oggi);
   Debug_MSG_LN(" Wh_zero_settimanale:" + (String) Power[0].Wh_zero_settimanale);
   Debug_MSG_LN(" Wh_zero_mensile:" + (String) Power[0].Wh_zero_mensile);
+  Debug_MSG_LN(" Wh_ieri:" + (String) Power[0].Wh_ieri);
+  Debug_MSG_LN(" Wh_settimana_scorsa:" + (String) Power[0].Wh_settimana_scorsa);
+  Debug_MSG_LN(" Wh_mese_scorso:" + (String) Power[0].Wh_mese_scorso);
 }
 
 void EEPROM_WRITE_Power_zero(int i) {
@@ -411,10 +418,16 @@ void EEPROM_WRITE_Power_zero(int i) {
   eepromWriteFloat(EEPROM_Power_zero + 4, Power[0].Wh_zero_oggi);
   eepromWriteFloat(EEPROM_Power_zero + 8, Power[0].Wh_zero_settimanale);
   eepromWriteFloat(EEPROM_Power_zero + 12, Power[0].Wh_zero_mensile);
+  eepromWriteFloat(EEPROM_Power_zero + 16, Power[0].Wh_ieri);
+  eepromWriteFloat(EEPROM_Power_zero + 20, Power[0].Wh_settimana_scorsa);
+  eepromWriteFloat(EEPROM_Power_zero + 24, Power[0].Wh_mese_scorso);
   Debug_MSG_LN(" Wh_zero_parziale:" + (String)Power[0].Wh);
   Debug_MSG_LN(" Wh_zero_oggi:" + (String)Power[0].Wh_zero_oggi);
   Debug_MSG_LN(" Wh_zero_settimanale:" + (String)Power[0].Wh_zero_settimanale);
   Debug_MSG_LN(" Wh_zero_mensile:" + (String)Power[0].Wh_zero_mensile);
+  Debug_MSG_LN(" Wh_ieri:" + (String)Power[0].Wh_ieri);
+  Debug_MSG_LN(" Wh_settimana_scorsa:" + (String)Power[0].Wh_settimana_scorsa);
+  Debug_MSG_LN(" Wh_mese_scorso:" + (String)Power[0].Wh_mese_scorso);
 }
 
 void EEPROM_READ_Power_Wh_KWh() {
