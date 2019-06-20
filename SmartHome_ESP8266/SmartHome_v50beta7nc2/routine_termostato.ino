@@ -8,7 +8,6 @@
 
 #define Termostato_TEMPO_CLICK_ON           TEMPO_CLICK_ON
 
-
 float   soglia_scatto_Termostato1 = 0.25;
 float   soglia_aggiornamento_temperatura = 0.2;
 

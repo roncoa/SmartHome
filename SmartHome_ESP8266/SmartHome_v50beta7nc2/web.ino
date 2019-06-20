@@ -124,6 +124,7 @@ void setup_web() {
       Stato_IMP(i);
       handle_IndexRedir();
     });
+#ifdef Impulso1_NFC
     HttpServer.on("/imp" + (String)i + "piukey", [i]() {
       Debug_MSG_LN("Message arrived [web] /imp" + (String)i + "piukey");
       piukey();
@@ -139,15 +140,9 @@ void setup_web() {
       clearkey();
       handle_IndexRedir();
     });
-
-
-
-
-
     for (int ii = 1; ii < 25; ii++) {
       HttpServer.on("/imp" + (String)i + "delkey" + (String)ii, [i, ii]() {
         Debug_MSG_LN("Message arrived [web] /imp" + (String)i +  "delkey" + (String)ii);
-
         String tmp = "";
         int i = EEPROM_NFC + ((ii - 1) * 4);
         tmp += String(EEPROM.read(i + 0) < 0x10 ? "0" : "");
@@ -158,15 +153,11 @@ void setup_web() {
         tmp += String(EEPROM.read(i + 2), HEX);
         tmp += String(EEPROM.read(i + 3) < 0x10 ? "0" : "");
         tmp += String(EEPROM.read(i + 3), HEX);
-
-
-
-
         eraseKey(tmp);
         handle_IndexRedir();
       });
     }
-
+#endif
   }
 #endif
 
@@ -727,29 +718,32 @@ String SendHTML() {
   for (int i = 0; i < Power_nodi; i++) {
     ptr += Power[i].topic + "<br><br>";
     ptr += "<table>";
-    ptr += "<tr><td style=\"width:150px\">V</td><td style=\"width:150px\">" + (String)Power[0].V  + "V</td></tr>";
-    ptr += "<tr><td>A</td><td>" + (String)Power[0].A  + "A</td></tr>";
-    ptr += "<tr><td>W</td><td>" + (String)Power[0].W  + "W</td></tr>";
+    ptr += "<tr><td style=\"width:150px\">V</td><td style=\"width:150px\">" + (String)Power[0].V  + " V</td></tr>";
+    ptr += "<tr><td>A</td><td>" + (String)Power[0].A + " A</td></tr>";
+    ptr += "<tr><td>W</td><td>" + (String)Power[0].W + " W</td></tr>";
+    ptr += "<tr><td>VA</td><td>" + (String)Power[0].VA + " VA</td></tr>";
+    ptr += "<tr><td>VAr</td><td>" + (String)Power[0].VAr + " VAr</td></tr>";
+    ptr += "<tr><td>cos&#x3C6</td><td>" + (String)Power[0].PF + "</td></tr>";
     if (KWh) {
-      ptr += "<tr><td>KWh totali</td><td>" + (String)(Power[i].Wh / 1000) + "KWh</td><td style=\"border:none\"><a href=\"pow" + (String)i + "KWh\"><button>KWh</button></a><a href=\"pow" + (String)i + "Wh\"><button>Wh</button></a></td></tr>";
-      ptr += "<tr><td>KWh parziali</td><td>" + (String)(Power[i].Wh_parziale / 1000) + "KWh</td><td style=\"border:none\"><a href=\"pow" + (String)i + "zero\"><button>Azzera</button></a></td></tr>";
+      ptr += "<tr><td>KWh totali</td><td>" + (String)(Power[i].Wh / 1000) + " KWh</td><td style=\"border:none\"><a href=\"pow" + (String)i + "KWh\"><button>KWh</button></a><a href=\"pow" + (String)i + "Wh\"><button>Wh</button></a></td></tr>";
+      ptr += "<tr><td>KWh parziali</td><td>" + (String)(Power[i].Wh_parziale / 1000) + " KWh</td><td style=\"border:none\"><a href=\"pow" + (String)i + "zero\"><button>Azzera</button></a></td></tr>";
     }
     else {
-      ptr += "<tr><td>Wh totali</td><td>" + (String)Power[i].Wh + "Wh</td><td style=\"border:none\"><a href=\"pow" + (String)i + "KWh\"><button>KWh</button></a><a href=\"pow" + (String)i + "Wh\"><button>Wh</button></a></td></tr>";
-      ptr += "<tr><td>Wh parziali</td><td>" + (String)Power[i].Wh_parziale + "Wh</td><td style=\"border:none\"><a href=\"pow" + (String)i + "zero\"><button>Azzera</button></a></td></tr>";
+      ptr += "<tr><td>Wh totali</td><td>" + (String)Power[i].Wh + " Wh</td><td style=\"border:none\"><a href=\"pow" + (String)i + "KWh\"><button>KWh</button></a><a href=\"pow" + (String)i + "Wh\"><button>Wh</button></a></td></tr>";
+      ptr += "<tr><td>Wh parziali</td><td>" + (String)Power[i].Wh_parziale + " Wh</td><td style=\"border:none\"><a href=\"pow" + (String)i + "zero\"><button>Azzera</button></a></td></tr>";
     }
     ptr += "</table>";
     ptr += "<br>";
     ptr += "<table>";
     if (KWh) {
-      ptr += "<tr><td style=\"width:150px\">KWh oggi</td><td style=\"width:150px\">" + (String)(Power[0].Wh_oggi / 1000) + "KWh</td></tr>";
-      ptr += "<tr><td>KWh settimana</td><td>" + (String)(Power[0].Wh_settimanale / 1000)  + "KWh</td></tr>";
-      ptr += "<tr><td>KWh mese</td><td>" + (String)(Power[0].Wh_mensile / 1000) + "KWh</td></tr>";
+      ptr += "<tr><td style=\"width:150px\">KWh oggi</td><td style=\"width:150px\">" + (String)(Power[0].Wh_oggi / 1000) + " KWh</td></tr>";
+      ptr += "<tr><td>KWh settimana</td><td>" + (String)(Power[0].Wh_settimanale / 1000)  + " KWh</td></tr>";
+      ptr += "<tr><td>KWh mese</td><td>" + (String)(Power[0].Wh_mensile / 1000) + " KWh</td></tr>";
     }
     else {
-      ptr += "<tr><td style=\"width:150px\">Wh oggi</td><td style=\"width:150px\">" + (String)Power[0].Wh_oggi  + "Wh</td></tr>";
-      ptr += "<tr><td>Wh settimana</td><td>" + (String)Power[0].Wh_settimanale  + "Wh</td></tr>";
-      ptr += "<tr><td>Wh mese</td><td>" + (String)Power[0].Wh_mensile  + "Wh</td></tr>";
+      ptr += "<tr><td style=\"width:150px\">Wh oggi</td><td style=\"width:150px\">" + (String)Power[0].Wh_oggi  + " Wh</td></tr>";
+      ptr += "<tr><td>Wh settimana</td><td>" + (String)Power[0].Wh_settimanale  + " Wh</td></tr>";
+      ptr += "<tr><td>Wh mese</td><td>" + (String)Power[0].Wh_mensile  + " Wh</td></tr>";
     }
     ptr += "</table>";
     ptr += "<br>";

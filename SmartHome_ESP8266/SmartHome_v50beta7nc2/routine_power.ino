@@ -77,6 +77,9 @@ typedef struct {
   float A = 0.0;
   float W = 0.0;
   float Wh = 0.0;
+  float VA = 0.0;
+  float VAr = 0.0;
+  float PF = 0.0;
   float Wh_parziale = 0.0;
   float Wh_oggi = 0.0;
   float Wh_settimanale = 0.0;
@@ -151,6 +154,14 @@ void Stato_POW(int i) {
   payload += Power[i].A;
   payload += "\",\"W\":\"";
   payload += Power[i].W;
+ 
+  payload += "\",\"VA\":\"";
+  payload += Power[i].VA;
+  payload += "\",\"VAr\":\"";
+  payload += Power[i].VAr;
+  payload += "\",\"PF\":\"";
+  payload += Power[i].PF;
+  
   payload += "\",\"Wh\":\"";
   payload += Power[0].Wh;
   payload += "\",\"WhParziale\":\"";
@@ -314,7 +325,9 @@ void loop_Power() {
       Power[0].A = tA;
       Power[0].W = tW;
       Power[0].Wh = tWh;
-
+      Power[0].PF = tW / (tV * tA);
+      Power[0].VA = Power[0].A * Power[0].V;
+      Power[0].VAr = Power[0].VA * sin(acos(Power[0].PF));
       if (!Started_zero) {
         Started_zero = true;
         EEPROM_READ_Power_zero(0);
