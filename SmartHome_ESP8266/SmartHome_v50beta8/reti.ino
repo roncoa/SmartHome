@@ -51,7 +51,7 @@ void setup_reti() {
   WiFi.setOutputPower(0);
   WiFi.setAutoReconnect(true);
   WiFi.mode(WIFI_STA);
-  MQTTclient.setServer(mqtt_server, 1883);
+  MQTTclient.setServer(mqtt_server, mqtt_port);
   MQTTclient.setCallback(callback);
   if ((!S_IP.fromString(IP) or !S_SUBNET.fromString(SUBNET) or !S_GATEWAY.fromString(GATEWAY) or !S_DNSIP.fromString(DNSIP)) and Static_IP ) {
     Static_IP = false;
