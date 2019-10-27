@@ -1,4 +1,4 @@
-## SmartHome: firmware per ESP8266
+## SmartHome: firmware per ESP8266. 
  
 SmartHome è un _Firmware per ESP8266_ con lo scopo di realizzare moduli domotici a basso costo per rendere "intelligente" la casa.
   
