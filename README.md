@@ -4,7 +4,7 @@ SmartHome è un _Firmware per ESP8266_ con lo scopo di realizzare moduli domotic
   
   
 Per istruzioni e informazioni leggi [**Wiki**](https://github.com/roncoa/SmartHome/wiki)  
-Gruppo di supporto [**Facebook**](https://www.facebook.com/groups/351472505248816/) , canale [**YouTube**](https://www.youtube.com/channel/UCH0nHGMIiRXIqrjvXte5OcA)  
+Gruppo di supporto [**Facebook**](https://www.facebook.com/groups/351472505248816/) , canale [**YouTube**](https://www.youtube.com/channel/UCH0nHGMIiRXIqrjvXte5OcA) , forum [**YouTube**](https://forum.hassiohelp.eu/forumdisplay.php?fid=78)
 Per scaricare l'ultima [![GitHub version](https://img.shields.io/github/release/roncoa/smarthome.svg)](https://github.com/roncoa/smarthome/releases/latest) clicca [**qui**](https://github.com/roncoa/SmartHome/releases/latest)  
 [![GitHub download](https://img.shields.io/github/downloads/roncoa/smarthome/total.svg)](https://github.com/roncoa/smarthome/releases/latest)
 [![License](https://img.shields.io/github/license/roncoa/smarthome.svg)](https://github.com/roncoa/smarthome/blob/development/LICENSE.txt) 
