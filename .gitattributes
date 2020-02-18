@@ -1,2 +1,6 @@
-# to change language of repo from Javascript to Python
-    *.zip linguist-language=Arduino
+utility/ linguist-documentation=false
+*.ino linguist-language=Arduino
+*.cpp linguist-language=Arduino
+*.hpp linguist-language=Arduino
+*.h linguist-language=Arduino
+*.zip linguist-language=Arduino
