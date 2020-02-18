@@ -3,4 +3,3 @@ utility/ linguist-documentation=false
 *.cpp linguist-language=Arduino
 *.hpp linguist-language=Arduino
 *.h linguist-language=Arduino
-*.zip linguist-language=Arduino
