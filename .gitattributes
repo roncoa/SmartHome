@@ -1,2 +1,2 @@
 # to change language of repo from Javascript to Python
-    *.md linguist-language=Arduino
+    *.rb linguist-language=Arduino
