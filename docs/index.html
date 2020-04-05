@@ -1,0 +1,32 @@
+<table>
+<tbody>
+<tr class="odd">
+<td>
+<img src="./media/image1.jpeg" style="width:1.89583in;height:1.89583in" />
+</td>
+<td>
+<p>
+<em><strong>SmartHome</strong></em>
+</p>
+<p>
+<strong>Firmware per ESP8266 basato sul protocollo MQTT</strong>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong><em>SmartHome</em></strong> è un firmware per dispositivi basati sul microcontrollore <strong><em>ESP8266</em></strong> con lo scopo di realizzare moduli domotici a basso costo per rendere “<em>intelligente</em>” la casa.</p>
+<p>La logica del progetto è divisa in nodi ed ogni nodo ha la propria logica di funzionamento e gestisce i <strong>GPIO</strong> (ingressi ed uscite) ad esso collegati.</p>
+<p>I nodi sono: nodo <span class="underline">tapparella</span>, <span class="underline">interruttore</span>, <span class="underline">impulso</span>, <span class="underline">temporizzatore,</span> <span class="underline">sensore</span>, <span class="underline">power</span>, <span class="underline">termostato</span> e <span class="underline">display</span>.</p>
+<p>Su ogni singolo <strong><em>ESP8266</em></strong>, si possono caricare più nodi, anche non dello stesso tipo, basta che abbiano tutti un <em>topic</em> diverso (ad esempio: “<em>Tapparella/sala</em>”, “<em>Tapparella/cucina</em>”, “<em>Interruttore/sala</em>”, ecc.).</p>
+<p>Ogni nodo comunica attraverso il protocollo <strong>MQTT</strong> con il broker, che può essere locale (LAN) o remoto (internet).</p>
+<p>Per interagire con i singoli nodi (contraddistinti da un <em>topic</em> <strong>MQTT</strong> univoco), bisogna inviargli specifici comandi. In questo modo gli facciamo compiere operazioni specifiche oppure possiamo interrogarlo per avere informazioni come per esempio lo stato. Il nodo risponderà sul topic “<em>TopicNodo/ack</em>”.</p>
+<p>Tutti i nodi sono gestibili attraverso l’<strong><em><span class="underline">app Android</span></em></strong> dedicata (scaricabile dal Google Play store) oppure attraverso HUB personali come per esempio <strong><em><span class="underline">Home Assistant</span></em></strong>.</p>
+<p>Progetto su GitHub: <a href="https://github.com/roncoa/SmartHome" class="uri">https://github.com/roncoa/SmartHome</a><br />
+Ultima release: <a href="https://github.com/roncoa/SmartHome/releases/latest">https://github.com/roncoa/SmartHome/Relèases/latest</a><br />
+Wiki: <a href="https://github.com/roncoa/SmartHome/wiki" class="uri">https://github.com/roncoa/SmartHome/wiki</a><br />
+APP Android: <a href="https://play.google.com/store/apps/details?id=roncoa.SmartHome" class="uri">https://play.google.com/store/apps/details?id=roncoa.SmartHome</a><br />
+Canale YouTube: <a href="https://www.youtube.com/channel/UCH0nHGMIiRXIqrjvXte5OcA" class="uri">https://www.youtube.com/channel/UCH0nHGMIiRXIqrjvXte5OcA</a><br />
+Gruppo Facebook: <a href="https://www.facebook.com/groups/SmartHome.roncoa" class="uri">https://www.facebook.com/groups/SmartHome.roncoa</a><br />
+Gruppo Telegram: <a href="https://t.me/joinchat/HDit8BbtVrId4Xh89_gBqw" class="uri">https://t.me/joinchat/HDit8BbtVrId4Xh89_gBqw</a><br />
+Forum HassioHelp: <a href="https://forum.hassiohelp.eu/t/smarthome-by-at-roncoa" class="uri">https://forum.hassiohelp.eu/t/smarthome-by-at-roncoa</a></p>
