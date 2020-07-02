@@ -19,14 +19,14 @@ Se ti piace **SmartHome** .......
 [![GitHub forks](https://img.shields.io/github/forks/roncoa/smarthome.svg?style=social&label=Fork)](https://github.com/roncoa/smarthome/network)
   
   
-  
-## ⚠️ Attenzione ⚠️  
-Ricorda: **SICUREZZA PRIMA DI TUTTO!**  
+## ⚠️ Disclaimer ⚠️
+Il firmware è realizzato a puro scopo didattico. Utilizzare solo "a banco" e in bassa tensione.  
+Non ci assumiamo alcuna responsabilità per l'utilizzo e l'installazione di questo firmware.  
+Non ci assumiamo alcuna responsabilità per eventuali suggerimenti, consigli, video, ecc. forniti da qualsiasi membro di questo sito o qualsiasi sito correlato.  
+
+
+## ⚠️ **SICUREZZA PRIMA DI TUTTO!** ⚠️  
 I dispositivi usati (Sonoff, Electrodragon, Shelly, ecc.) non sono un giocattolo. Usa la rete 230Vac in modo da evitare il rischio di elettrocuzione se i dispositivi non sono installati correttamente. Se non sai come installarli, chiama un elettricista.  
 Non vale la pena rischiare per se stessi, la propria famiglia e la propria casa se non si sa esattamente cosa si sta facendo. Non provare mai a flashare un dispositivo mentre è collegato alla rete 230Vac.  
   
-## ⚠️ Disclaimer ⚠️
-Il firmware è realizzato a puro scopo didattico.  
-Utilizzare solo "a banco" e in bassa tensione.  
-Non ci assumiamo alcuna responsabilità per l'utilizzo di questo firmware, né per l'installazione.  
-Non ci assumiamo alcuna responsabilità per eventuali suggerimenti, consigli, video, ecc. forniti da qualsiasi membro di questo sito o qualsiasi sito correlato.
+
