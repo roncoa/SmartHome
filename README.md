@@ -22,8 +22,8 @@ Se ti piace **SmartHome** .......
   
 ## ⚠️ Attenzione ⚠️  
 Ricorda: **SICUREZZA PRIMA DI TUTTO!**  
-I dispositivi usati (Sonoff, Electrodragon, Shelly, ecc.) non sono un giocattolo. Usa la rete 230vac in modo da evitare il rischio di elettrocuzione se i dispositivi non sono installati correttamente. Se non sai come installarli, chiama un elettricista.  
-Non vale la pena rischiare per se stessi, la propria famiglia e la propria casa se non si sa esattamente cosa si sta facendo. Non provare mai a flashare un dispositivo mentre è collegato alla rete 230vac.  
+I dispositivi usati (Sonoff, Electrodragon, Shelly, ecc.) non sono un giocattolo. Usa la rete 230Vac in modo da evitare il rischio di elettrocuzione se i dispositivi non sono installati correttamente. Se non sai come installarli, chiama un elettricista.  
+Non vale la pena rischiare per se stessi, la propria famiglia e la propria casa se non si sa esattamente cosa si sta facendo. Non provare mai a flashare un dispositivo mentre è collegato alla rete 230Vac.  
   
 ## ⚠️ Disclaimer ⚠️
 Il firmware è realizzato a puro scopo didattico.  
