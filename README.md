@@ -27,4 +27,6 @@ Non vale la pena rischiare per se stessi, la propria famiglia e la propria casa 
   
 ## ⚠️ Disclaimer ⚠️
 Il firmware è realizzato a puro scopo didattico.  
-Non ci assumiamo alcuna responsabilità per l'utilizzo di questo firmware, né per l'installazione o eventuali suggerimenti, consigli, video, ecc. forniti da qualsiasi membro di questo sito o qualsiasi sito correlato.
+Utilizzare solo "a banco" e in bassa tensione.  
+Non ci assumiamo alcuna responsabilità per l'utilizzo di questo firmware, né per l'installazione.  
+Non ci assumiamo alcuna responsabilità per eventuali suggerimenti, consigli, video, ecc. forniti da qualsiasi membro di questo sito o qualsiasi sito correlato.
