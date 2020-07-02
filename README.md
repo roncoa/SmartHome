@@ -10,7 +10,7 @@ Per scaricare l'ultima [![GitHub version](https://img.shields.io/github/release/
 [![GitHub download](https://img.shields.io/github/downloads/roncoa/smarthome/total.svg)](https://github.com/roncoa/smarthome/releases/latest)
 [![License](https://img.shields.io/github/license/roncoa/smarthome.svg)](https://github.com/roncoa/smarthome/blob/development/LICENSE.txt) 
 
-Per il changelog clicca [**qui**](changelog.md)
+Per il changelog clicca [**qui**](https://github.com/roncoa/SmartHome/wiki/changelog.md)
   
   
 Se ti piace **SmartHome** .......
