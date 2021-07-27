@@ -2,10 +2,9 @@
  
 SmartHome è un _Firmware per ESP8266_ con lo scopo di realizzare moduli domotici a basso costo per rendere "intelligente" la casa.
   
-Gruppo di supporto [**Facebook**](https://www.facebook.com/groups/351472505248816/) , canale [**YouTube**](https://www.youtube.com/channel/UCH0nHGMIiRXIqrjvXte5OcA)  
+Gruppo di supporto [**Facebook**](https://www.facebook.com/groups/351472505248816/), canale [**YouTube**](https://www.youtube.com/channel/UCH0nHGMIiRXIqrjvXte5OcA) e gruppo [**Telegram**](https://t.me/joinchat/HDit8BbtVrId4Xh89_gBqw).  
 
-Per istruzioni e informazioni leggi [**Wiki**](https://github.com/roncoa/SmartHome/wiki)  
-
+Per istruzioni e informazioni -> [**Wiki**](https://github.com/roncoa/SmartHome/wiki).  
 
 Per scaricare l'ultima [![GitHub version](https://img.shields.io/github/release/roncoa/smarthome.svg)](https://github.com/roncoa/smarthome/releases/latest) clicca [**qui**](https://github.com/roncoa/SmartHome/releases/latest)  
 
